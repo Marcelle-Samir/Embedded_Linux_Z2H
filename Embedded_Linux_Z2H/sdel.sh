@@ -17,7 +17,7 @@ do
     else
       echo "file $i not comp"
       tar czf $i.tar.gz $i
-      mv $i $DIR
+      mv "$i.tar.gz" $DIR
       echo "file $i removed"
     fi
   elif [[ -d $i ]]
@@ -47,7 +47,7 @@ do
     else
       echo "file $i not comp"
       tar czf $i.tar.gz $i
-      mv $i $DIR
+      mv "$i.tar.gz" $DIR
       echo "file $i removed"
     fi
   elif [[ -d $i ]]
@@ -61,3 +61,4 @@ do
   fi
 done
 fi
+find $DIR -mmin +4 -type f -exec rm {} \;
