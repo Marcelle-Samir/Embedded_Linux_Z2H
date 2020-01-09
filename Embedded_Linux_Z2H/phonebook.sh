@@ -1,8 +1,8 @@
 #!/bin/bash
-
-clear
+if [[ ! -f phonebookDB.txt ]]
+then
 touch phonebookDB.txt
-#regexp="templateUr1: (^[[:space:]]^')"
+fi
 if [[ $1 = "-i" ]]
 then
   read -p "please enter the contact's first Name: " new_fname
@@ -163,7 +163,13 @@ then
     echo "name is too short, try again"
   fi
 
-
+elif [[ $# == 0 ]]
+then
+    echo "to add new contact choose -i"
+    echo "to view all saved contacts choose -v "
+    echo "to Search by contact name -s"
+    echo "to Delete all records choose -e"
+    echo "to Delete only one contact name -d"
 else
     echo "invalid option, please choose one of these choices to run the script"
     echo "to add new contact choose -i"
