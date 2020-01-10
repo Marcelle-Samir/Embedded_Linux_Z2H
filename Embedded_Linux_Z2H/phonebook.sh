@@ -41,10 +41,10 @@ then
                   echo $new2_number >> phonebookDB.txt
                   echo "contact saved"
                 else
-                  echo "contact's number is too short or too long, please try again"
+                  echo "contact's number must be 11 digits, please try again"
                 fi
               else 
-                echo "phone num must start with 0"
+                echo "contact's number must start with 0, please try again"
               fi
             elif [[ $num_if = "n" || $num_if = "N" ]]
             then
@@ -54,10 +54,10 @@ then
               echo "invalid option"
             fi
           else
-            echo "contact's number is too short or too long, please try again" 
+            echo "contact's number must be 11 digits, please try again" 
 	  fi
         else 
-          echo "phone num must start with 0"
+          echo "contact's number must start with 0, please try again"
         fi 
       fi 
     else
@@ -85,10 +85,10 @@ then
                 echo $new2_number >> phonebookDB.txt
                 echo "contact saved"
               else
-                echo "contact's number is too short or too long, please try again"
+                echo "contact's number must be 11 digits, please try again"
               fi
             else 
-              echo "wrong service code of contact's number"
+              echo "contact's number must start with 0, please try again"
             fi
           elif [[ $num_if = "n" || $num_if = "N" ]]
           then
@@ -98,10 +98,10 @@ then
             echo "invalid option"
           fi
         else
-          echo "contact's number is too short or too long, please try again" 
+          echo "contact's number must be 11 digits, please try again" 
         fi
       else 
-        echo "wrong service code of contact's number"
+        echo "contact's number must start with 0, please try again"
       fi  
     fi
    else
@@ -119,7 +119,7 @@ elif [[ $1 = "-s" ]]
 then
   read -p "please enter a full name to search for: " search_name
   search_len=${#search_name} 
-  if [[ $search_len -gt 1 ]]
+  if [[ $search_len -gt 0 ]]
   then
     if [[ `grep -n $search_name phonebookDB.txt` ]]
     then
@@ -135,11 +135,17 @@ then
 
 elif [[ $1 = "-e" ]]
 then
-  echo "" > phonebookDB.txt
-  echo "your phonebook is empty"
-
-
-
+ read -p "you are going to delete all your phonebook's contacts, are you sure? y/n  : " delete_if
+          if [[ $delete_if = "y" || $delete_if = "Y" ]]
+          then
+            echo "" > phonebookDB.txt
+            echo "your phonebook is empty now"
+          elif [[ $delete_if = "n" || $delete_if = "N" ]]
+          then
+            echo "nothing deleted"
+          else
+            echo "invalid option"
+          fi
 elif [[ $1 = "-d" ]]
 then
   echo "these are all the current contacts in your phone book, choose one to delete"
@@ -160,22 +166,23 @@ then
       cat phonebookDB.txt 
     fi 
   else
-    echo "name is too short, try again"
+    echo "contact's name is too short, try again"
   fi
 
 elif [[ $# == 0 ]]
 then
-    echo "to add new contact choose -i"
-    echo "to view all saved contacts choose -v "
-    echo "to Search by contact name -s"
-    echo "to Delete all records choose -e"
-    echo "to Delete only one contact name -d"
+    echo "these are the available choices to run this script"
+    echo "-i to add new contact choose "
+    echo "-v to view all saved contacts choose "
+    echo "-s to Search by contact name "
+    echo "-e to Delete all records choose "
+    echo "-d to Delete only one contact name "
 else
     echo "invalid option, please choose one of these choices to run the script"
-    echo "to add new contact choose -i"
-    echo "to view all saved contacts choose -v "
-    echo "to Search by contact name -s"
-    echo "to Delete all records choose -e"
-    echo "to Delete only one contact name -d"
+    echo "-i to add new contact choose "
+    echo "-v to view all saved contacts choose "
+    echo "-s to Search by contact name "
+    echo "-e to Delete all records choose "
+    echo "-d to Delete only one contact name "
 fi
 
