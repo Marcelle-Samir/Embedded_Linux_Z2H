@@ -5,6 +5,13 @@ touch phonebookDB.txt
 fi
 if [[ $1 = "-i" ]]
 then
+echo "to inseart new contact your will ask to write 3 things:"
+echo "1- first name"
+echo "2- second name"
+echo "3- phone number start with 0 and contains 11 digits"
+read -p "are you okay with that? y/n: " ok_if
+if [[ $ok_if = "y" || $ok_if = "Y" ]]
+then
   read -p "please enter the contact's first Name: " new_fname
   read -p "please enter the contact's second Name: " new_sname
   fname_len=${#new_fname} 
@@ -107,6 +114,12 @@ then
    else
    echo "name is too short or too long, please try again"
    fi
+elif [[ $ok_if = "n" || $ok_if = "N" ]]
+then 
+echo "sorry"
+else
+echo "invalid option"
+fi
 
 
 
