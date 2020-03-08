@@ -1,0 +1,2462 @@
+Using /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config as base
+#
+# merged configuration written to /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config (needs make)
+#
+make[1]: Entering directory '/home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1'
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/split-include
+  HOSTCC  scripts/basic/docproc
+scripts/kconfig/conf -o Config.in
+.config:286:warning: trying to assign nonexistent symbol FEATURE_FLOAT_SLEEP
+.config:1153:warning: trying to reassign symbol SHUF
+.config:1154:warning: trying to reassign symbol SHUF
+.config:1155:warning: trying to reassign symbol SHUF
+.config:1156:warning: trying to reassign symbol SHUF
+.config:1157:warning: trying to reassign symbol SHUF
+.config:1158:warning: trying to reassign symbol SHUF
+.config:1159:warning: trying to reassign symbol SHUF
+.config:1160:warning: trying to reassign symbol SHUF
+.config:1161:warning: trying to reassign symbol SHUF
+.config:1162:warning: trying to reassign symbol SHUF
+#
+# using defaults found in .config
+#
+*
+* Busybox Configuration
+*
+*
+* Settings
+*
+Enable compatibility for full-blown desktop systems (8kb) (DESKTOP) [Y/n/?] y
+Provide compatible behavior for rare corner cases (bigger code) (EXTRA_COMPAT) [N/y/?] n
+Building for Fedora distribution (FEDORA_COMPAT) [N/y/?] n
+Enable obsolete features removed before SUSv3 (INCLUDE_SUSv2) [Y/n/?] y
+Support --long-options (LONG_OPTS) [Y/?] y
+Show applet usage messages (SHOW_USAGE) [Y/n/?] y
+  Show verbose applet usage messages (FEATURE_VERBOSE_USAGE) [Y/n/?] y
+  Store applet usage messages in compressed form (FEATURE_COMPRESS_USAGE) [N/y/?] n
+Support files > 2 GB (LFS) [Y/n/?] y
+Support PAM (Pluggable Authentication Modules) (PAM) [N/y/?] n
+Use the devpts filesystem for Unix98 PTYs (FEATURE_DEVPTS) [Y/n/?] y
+Support utmp file (FEATURE_UTMP) [Y/n/?] y
+  Support wtmp file (FEATURE_WTMP) [Y/n/?] y
+Support writing pidfiles (FEATURE_PIDFILE) [N/y/?] n
+Include busybox applet (BUSYBOX) [Y/n/?] y
+  Support --show SCRIPT (FEATURE_SHOW_SCRIPT) [Y/n] (NEW)   Support --install [-s] to install applet links at runtime (FEATURE_INSTALLER) [Y/n/?] y
+Don't use /usr (INSTALL_NO_USR) [N/y/?] n
+Drop SUID state for most applets (FEATURE_SUID) [Y/n/?] y
+  Enable SUID configuration via /etc/busybox.conf (FEATURE_SUID_CONFIG) [N/y/?] n
+exec prefers applets (FEATURE_PREFER_APPLETS) [N/y/?] n
+Path to busybox executable (BUSYBOX_EXEC_PATH) [/proc/self/exe] /proc/self/exe
+Support NSA Security Enhanced Linux (SELINUX) [N/y/?] n
+Clean up all memory before exiting (usually not needed) (FEATURE_CLEAN_UP) [N/y/?] n
+Support LOG_INFO level syslog messages (FEATURE_SYSLOG_INFO) [Y/n/?] (NEW) *
+* Build Options
+*
+Build static binary (no shared libs) (STATIC) [N/y/?] n
+  Build position independent executable (PIE) [N/y/?] n
+Force NOMMU build (NOMMU) [N/y/?] n
+Build shared libbusybox (BUILD_LIBBUSYBOX) [N/y/?] n
+Cross compiler prefix (CROSS_COMPILER_PREFIX) [] 
+Path to sysroot (SYSROOT) [] 
+Additional CFLAGS (EXTRA_CFLAGS) [] 
+Additional LDFLAGS (EXTRA_LDFLAGS) [] 
+Additional LDLIBS (EXTRA_LDLIBS) [] 
+Avoid using GCC-specific code constructs (USE_PORTABLE_CODE) [N/y/?] n
+Use -mpreferred-stack-boundary=2 on i386 arch (STACK_OPTIMIZATION_386) [Y/n/?] (NEW) *
+* Installation Options ("make install" behavior)
+*
+What kind of applet links to install
+> 1. as soft-links (INSTALL_APPLET_SYMLINKS)
+  2. as hard-links (INSTALL_APPLET_HARDLINKS)
+  3. as script wrappers (INSTALL_APPLET_SCRIPT_WRAPPERS)
+  4. not installed (INSTALL_APPLET_DONT)
+choice[1-4?]: 1
+Destination path for 'make install' (PREFIX) [./_install] ./_install
+*
+* Debugging Options
+*
+Build with debug information (DEBUG) [N/y/?] n
+Enable runtime sanitizers (ASAN/LSAN/USAN/etc...) (DEBUG_SANITIZE) [N/y/?] n
+Build unit tests (UNIT_TEST) [N/y/?] n
+Abort compilation on any warning (WERROR) [N/y/?] n
+Additional debugging library
+> 1. None (NO_DEBUG_LIB)
+  2. Dmalloc (DMALLOC)
+  3. Electric-fence (EFENCE)
+choice[1-3?]: 1
+*
+* Library Tuning
+*
+Use the end of BSS page (FEATURE_USE_BSS_TAIL) [N/y/?] n
+Enable fractional duration arguments (FLOAT_DURATION) [Y/n/?] (NEW) Support RTMIN[+n] and RTMAX[-n] signal names (FEATURE_RTMINMAX) [Y/n/?] y
+  Use the definitions of SIGRTMIN/SIGRTMAX provided by libc (FEATURE_RTMINMAX_USE_LIBC_DEFINITIONS) [Y/n/?] (NEW) Buffer allocation policy
+> 1. Allocate with Malloc (FEATURE_BUFFERS_USE_MALLOC)
+  2. Allocate on the Stack (FEATURE_BUFFERS_GO_ON_STACK)
+  3. Allocate in the .bss section (FEATURE_BUFFERS_GO_IN_BSS)
+choice[1-3?]: 1
+Minimum password length (PASSWORD_MINLEN) [6] 6
+MD5: Trade bytes for speed (0:fast, 3:slow) (MD5_SMALL) [1] 1
+SHA3: Trade bytes for speed (0:fast, 1:slow) (SHA3_SMALL) [1] 1
+Faster /proc scanning code (+100 bytes) (FEATURE_FAST_TOP) [N/y/?] n
+Support /etc/networks (FEATURE_ETC_NETWORKS) [N/y/?] n
+Consult /etc/services even for well-known ports (FEATURE_ETC_SERVICES) [N/y/?] (NEW) Command line editing (FEATURE_EDITING) [Y/n/?] y
+  Maximum length of input (FEATURE_EDITING_MAX_LEN) [1024] 1024
+  vi-style line editing commands (FEATURE_EDITING_VI) [Y/n/?] y
+  History size (FEATURE_EDITING_HISTORY) [999] 999
+  History saving (FEATURE_EDITING_SAVEHISTORY) [Y/n/?] y
+    Save history on shell exit, not after every command (FEATURE_EDITING_SAVE_ON_EXIT) [N/y/?] n
+  Reverse history search (FEATURE_REVERSE_SEARCH) [Y/n/?] y
+  Tab completion (FEATURE_TAB_COMPLETION) [Y/n] y
+    Username completion (FEATURE_USERNAME_COMPLETION) [N/y] n
+  Fancy shell prompts (FEATURE_EDITING_FANCY_PROMPT) [Y/n/?] y
+  Enable automatic tracking of window size changes (FEATURE_EDITING_WINCH) [Y/n] (NEW)   Query cursor position from terminal (FEATURE_EDITING_ASK_TERMINAL) [N/y/?] n
+Enable locale support (system needs locale for this to work) (LOCALE_SUPPORT) [N/y/?] n
+Support Unicode (UNICODE_SUPPORT) [N/y/?] n
+Non-POSIX, but safer, copying to special nodes (FEATURE_NON_POSIX_CP) [Y/n/?] y
+Give more precise messages when copy fails (cp, mv etc) (FEATURE_VERBOSE_CP_MESSAGE) [N/y/?] n
+Use sendfile system call (FEATURE_USE_SENDFILE) [Y/n/?] y
+Copy buffer size, in kilobytes (FEATURE_COPYBUF_KB) [4] 4
+Skip rootfs in mount table (FEATURE_SKIP_ROOTFS) [Y/n/?] y
+Use clock_gettime(CLOCK_MONOTONIC) syscall (MONOTONIC_SYSCALL) [Y/n/?] y
+Use ioctl names rather than hex values in error messages (IOCTL_HEX2STR_ERROR) [Y/n/?] y
+Support infiniband HW (FEATURE_HWIB) [Y/n/?] y
+*
+* Applets
+*
+*
+* Archival Utilities
+*
+Make tar, rpm, modprobe etc understand .xz data (FEATURE_SEAMLESS_XZ) [N/y] n
+Make tar, rpm, modprobe etc understand .lzma data (FEATURE_SEAMLESS_LZMA) [N/y] n
+Make tar, rpm, modprobe etc understand .bz2 data (FEATURE_SEAMLESS_BZ2) [N/y] n
+Make tar, rpm, modprobe etc understand .gz data (FEATURE_SEAMLESS_GZ) [N/y] n
+Make tar, rpm, modprobe etc understand .Z data (FEATURE_SEAMLESS_Z) [N/y] n
+ar (9.5 kb) (AR) [Y/n/?] y
+  Support long filenames (not needed for debs) (FEATURE_AR_LONG_FILENAMES) [N/y/?] n
+  Support archive creation (FEATURE_AR_CREATE) [Y/n/?] y
+uncompress (7.1 kb) (UNCOMPRESS) [N/y/?] n
+gunzip (11 kb) (GUNZIP) [Y/n/?] y
+zcat (24 kb) (ZCAT) [Y/n/?] y
+  Enable long options (FEATURE_GUNZIP_LONG_OPTIONS) [Y/n] y
+bunzip2 (8.7 kb) (BUNZIP2) [Y/n/?] y
+bzcat (8.7 kb) (BZCAT) [Y/n/?] y
+unlzma (7.5 kb) (UNLZMA) [Y/n/?] y
+lzcat (7.5 kb) (LZCAT) [Y/n/?] y
+lzma -d (LZMA) [Y/n/?] y
+unxz (13 kb) (UNXZ) [Y/n/?] y
+xzcat (13 kb) (XZCAT) [Y/n/?] y
+xz -d (XZ) [Y/n/?] y
+bzip2 (16 kb) (BZIP2) [N/y/?] n
+  Enable decompression (FEATURE_BZIP2_DECOMPRESS) [Y/?] y
+cpio (15 kb) (CPIO) [Y/n/?] y
+  Support archive creation (FEATURE_CPIO_O) [N/y/?] n
+dpkg (43 kb) (DPKG) [N/y/?] n
+dpkg-deb (30 kb) (DPKG_DEB) [N/y/?] n
+gzip (17 kb) (GZIP) [Y/n/?] y
+  Enable long options (FEATURE_GZIP_LONG_OPTIONS) [N/y] n
+  Trade memory for speed (0:small,slow - 2:fast,big) (GZIP_FAST) [0] 0
+  Enable compression levels (FEATURE_GZIP_LEVELS) [N/y/?] n
+  Enable decompression (FEATURE_GZIP_DECOMPRESS) [Y/?] y
+lzop (12 kb) (LZOP) [N/y/?] n
+unlzop (13 kb) (UNLZOP) [Y/n/?] y
+lzopcat (13 kb) (LZOPCAT) [Y/n/?] y
+  lzop compression levels 7,8,9 (not very useful) (LZOP_COMPR_HIGH) [N/y/?] n
+rpm (32 kb) (RPM) [N/y/?] n
+rpm2cpio (21 kb) (RPM2CPIO) [N/y/?] n
+tar (39 kb) (TAR) [Y/n/?] y
+  Enable long options (FEATURE_TAR_LONG_OPTIONS) [Y/n] y
+  Enable -c (archive creation) (FEATURE_TAR_CREATE) [Y/n] y
+  Enable -X (exclude from) and -T (include from) options (FEATURE_TAR_FROM) [Y/n/?] y
+  Support old tar header format (FEATURE_TAR_OLDGNU_COMPATIBILITY) [N/y/?] n
+  Enable untarring of tarballs with checksums produced by buggy Sun tar (FEATURE_TAR_OLDSUN_COMPATIBILITY) [N/y/?] n
+  Support GNU tar extensions (long filenames) (FEATURE_TAR_GNU_EXTENSIONS) [Y/n] y
+  Support writing to an external program (--to-command) (FEATURE_TAR_TO_COMMAND) [Y/n/?] y
+  Enable use of user and group names (FEATURE_TAR_UNAME_GNAME) [N/y/?] n
+  Enable -m (do not preserve time) GNU option (FEATURE_TAR_NOPRESERVE_TIME) [N/y] n
+unzip (26 kb) (UNZIP) [Y/n/?] y
+  Read and use Central Directory data (FEATURE_UNZIP_CDF) [Y/n/?] y
+    Support compression method 12 (bzip2) (FEATURE_UNZIP_BZIP2) [Y/n] y
+    Support compression method 14 (lzma) (FEATURE_UNZIP_LZMA) [Y/n] y
+    Support compression method 95 (xz) (FEATURE_UNZIP_XZ) [Y/n] y
+Optimize lzma for speed (FEATURE_LZMA_FAST) [N/y/?] n
+*
+* Coreutils
+*
+basename (438 bytes) (BASENAME) [Y/n/?] y
+cat (5.6 kb) (CAT) [Y/?] y
+  Enable -n and -b options (FEATURE_CATN) [Y/n/?] y
+  cat -v[etA] (FEATURE_CATV) [Y/n/?] y
+chgrp (7.6 kb) (CHGRP) [Y/n/?] y
+chmod (5.5 kb) (CHMOD) [Y/n/?] y
+chown (7.6 kb) (CHOWN) [Y/n/?] y
+  Enable long options (FEATURE_CHOWN_LONG_OPTIONS) [N/y] n
+chroot (3.7 kb) (CHROOT) [Y/n/?] y
+cksum (4.1 kb) (CKSUM) [Y/n/?] y
+comm (4.2 kb) (COMM) [N/y/?] n
+cp (10 kb) (CP) [Y/n/?] y
+  Enable long options (FEATURE_CP_LONG_OPTIONS) [N/y/?] n
+cut (5.8 kb) (CUT) [Y/n/?] y
+date (7 kb) (DATE) [Y/n/?] y
+  Enable ISO date format output (-I) (FEATURE_DATE_ISOFMT) [Y/n/?] y
+  Support %[num]N nanosecond format specifier (FEATURE_DATE_NANO) [N/y/?] n
+  Support weird 'date MMDDhhmm[[YY]YY][.ss]' format (FEATURE_DATE_COMPAT) [Y/n/?] y
+dd (7.5 kb) (DD) [Y/n/?] y
+  Enable signal handling for status reporting (FEATURE_DD_SIGNAL_HANDLING) [Y/n/?] y
+    Enable the third status line upon signal (FEATURE_DD_THIRD_STATUS_LINE) [N/y/?] n
+  Enable ibs, obs, iflag, oflag and conv options (FEATURE_DD_IBS_OBS) [Y/n/?] y
+  Enable status display options (FEATURE_DD_STATUS) [Y/n/?] y
+df (6.8 kb) (DF) [Y/n/?] y
+  Enable -a, -i, -B (FEATURE_DF_FANCY) [N/y/?] n
+dirname (329 bytes) (DIRNAME) [Y/n/?] y
+dos2unix (5.2 kb) (DOS2UNIX) [Y/n/?] y
+unix2dos (5.2 kb) (UNIX2DOS) [Y/n/?] y
+du (6.3 kb) (DU) [Y/n/?] y
+  Use default blocksize of 1024 bytes (else it's 512 bytes) (FEATURE_DU_DEFAULT_BLOCKSIZE_1K) [Y/n] y
+echo (1.8 kb) (ECHO) [Y/?] y
+  Enable -n and -e options (FEATURE_FANCY_ECHO) [Y/n] y
+env (4 kb) (ENV) [Y/n/?] y
+expand (5.1 kb) (EXPAND) [N/y/?] n
+unexpand (5.3 kb) (UNEXPAND) [N/y/?] n
+expr (6.6 kb) (EXPR) [Y/n/?] y
+  Extend Posix numbers support to 64 bit (EXPR_MATH_SUPPORT_64) [Y/n/?] y
+factor (2.7 kb) (FACTOR) [Y/n/?] y
+false (tiny) (FALSE) [Y/n/?] y
+fold (4.6 kb) (FOLD) [Y/n/?] y
+head (3.8 kb) (HEAD) [Y/n/?] y
+  Enable -c, -q, and -v (FEATURE_FANCY_HEAD) [Y/n] y
+hostid (286 bytes) (HOSTID) [Y/n/?] y
+id (7 kb) (ID) [Y/n/?] y
+groups (6.7 kb) (GROUPS) [N/y/?] n
+install (12 kb) (INSTALL) [Y/n/?] y
+  Enable long options (FEATURE_INSTALL_LONG_OPTIONS) [Y/n] y
+link (3.2 kb) (LINK) [Y/n/?] y
+ln (4.9 kb) (LN) [Y/n/?] y
+logname (1.1 kb) (LOGNAME) [Y/n/?] y
+ls (14 kb) (LS) [Y/n/?] y
+  Enable filetyping options (-p and -F) (FEATURE_LS_FILETYPES) [Y/n] y
+  Enable symlinks dereferencing (-L) (FEATURE_LS_FOLLOWLINKS) [Y/n] y
+  Enable recursion (-R) (FEATURE_LS_RECURSIVE) [Y/n] y
+  Enable -w WIDTH and window size autodetection (FEATURE_LS_WIDTH) [Y/n] y
+  Sort the file names (FEATURE_LS_SORTFILES) [Y/n/?] y
+  Show file timestamps (FEATURE_LS_TIMESTAMPS) [Y/n/?] y
+  Show username/groupnames (FEATURE_LS_USERNAME) [Y/n/?] y
+  Allow use of color to identify file types (FEATURE_LS_COLOR) [Y/n/?] y
+    Produce colored ls output by default (FEATURE_LS_COLOR_IS_DEFAULT) [Y/n/?] y
+md5sum (6.5 kb) (MD5SUM) [Y/n/?] y
+sha1sum (5.9 kb) (SHA1SUM) [Y/n/?] y
+sha256sum (7 kb) (SHA256SUM) [Y/n/?] y
+sha512sum (7.4 kb) (SHA512SUM) [Y/n/?] y
+sha3sum (6.1 kb) (SHA3SUM) [Y/n/?] y
+  *
+  * Common options for md5sum, sha1sum, sha256sum, sha512sum, sha3sum
+  *
+  Enable -c, -s and -w options (FEATURE_MD5_SHA1_SUM_CHECK) [Y/n/?] y
+mkdir (4.5 kb) (MKDIR) [Y/n/?] y
+mkfifo (3.8 kb) (MKFIFO) [Y/n/?] y
+mknod (4.5 kb) (MKNOD) [Y/n/?] y
+mktemp (4.2 kb) (MKTEMP) [Y/n/?] y
+mv (10 kb) (MV) [Y/n/?] y
+nice (2.1 kb) (NICE) [Y/n/?] y
+nl (4.6 kb) (NL) [Y/n/?] y
+nohup (2 kb) (NOHUP) [Y/n/?] y
+nproc (3.7 kb) (NPROC) [Y/n/?] y
+od (11 kb) (OD) [Y/n/?] y
+paste (4.9 kb) (PASTE) [Y/n/?] y
+printenv (1.3 kb) (PRINTENV) [Y/n/?] y
+printf (3.8 kb) (PRINTF) [Y/n/?] y
+pwd (3.7 kb) (PWD) [Y/n/?] y
+readlink (4 kb) (READLINK) [Y/n/?] y
+  Enable canonicalization by following all symlinks (-f) (FEATURE_READLINK_FOLLOW) [Y/n/?] y
+realpath (1.6 kb) (REALPATH) [Y/n/?] y
+rm (5.4 kb) (RM) [Y/n/?] y
+rmdir (3.5 kb) (RMDIR) [Y/n/?] y
+seq (3.8 kb) (SEQ) [Y/n/?] y
+shred (4.9 kb) (SHRED) [Y/n/?] y
+shuf (5.4 kb) (SHUF) [N/y/?] n
+sleep (2 kb) (SLEEP) [Y/?] y
+  Enable multiple arguments and s/m/h/d suffixes (FEATURE_FANCY_SLEEP) [Y/n/?] y
+sort (7.7 kb) (SORT) [Y/n/?] y
+  Full SuSv3 compliant sort (support -ktcbdfiogM) (FEATURE_SORT_BIG) [Y/n/?] y
+  Use less memory (but might be slower) (FEATURE_SORT_OPTIMIZE_MEMORY) [N/y/?] (NEW) split (5 kb) (SPLIT) [N/y/?] n
+stat (11 kb) (STAT) [N/y/?] n
+stty (8.9 kb) (STTY) [Y/n/?] y
+sum (4 kb) (SUM) [N/y/?] n
+sync (3.8 kb) (SYNC) [Y/n/?] y
+  Enable -d and -f flags (requires syncfs(2) in libc) (FEATURE_SYNC_FANCY) [N/y/?] n
+fsync (3.6 kb) (FSYNC) [N/y/?] n
+tac (3.9 kb) (TAC) [N/y/?] n
+tail (6.8 kb) (TAIL) [Y/n/?] y
+  Enable -q, -s, -v, and -F options (FEATURE_FANCY_TAIL) [Y/n/?] y
+tee (4.2 kb) (TEE) [Y/n/?] y
+  Enable block I/O (larger/faster) instead of byte I/O (FEATURE_TEE_USE_BLOCK_IO) [Y/n/?] y
+test (4.1 kb) (TEST) [Y/n/?] y
+test as [ (TEST1) [Y/n/?] y
+test as [[ (TEST2) [Y/n/?] y
+  Extend test to 64 bit (FEATURE_TEST_64) [Y/n/?] y
+timeout (6 kb) (TIMEOUT) [N/y/?] n
+touch (5.9 kb) (TOUCH) [Y/n/?] y
+  Add support for -h (FEATURE_TOUCH_NODEREF) [N/y/?] n
+  Add support for SUSV3 features (-d -t -r) (FEATURE_TOUCH_SUSV3) [Y/n/?] y
+tr (5.1 kb) (TR) [Y/n/?] y
+  Enable character classes (such as [:upper:]) (FEATURE_TR_CLASSES) [Y/n/?] y
+  Enable equivalence classes (FEATURE_TR_EQUIV) [Y/n/?] y
+true (tiny) (TRUE) [Y/n/?] y
+truncate (4.2 kb) (TRUNCATE) [Y/n/?] y
+tty (3.6 kb) (TTY) [Y/n/?] y
+uname (3.9 kb) (UNAME) [Y/n/?] y
+  Operating system name (UNAME_OSNAME) [GNU/Linux] GNU/Linux
+arch (1.1 kb) (BB_ARCH) [Y/n/?] y
+uniq (4.9 kb) (UNIQ) [Y/n/?] y
+unlink (3.2 kb) (UNLINK) [Y/n/?] y
+usleep (1.3 kb) (USLEEP) [Y/n/?] y
+uudecode (5.8 kb) (UUDECODE) [Y/n/?] y
+base64 (4.9 kb) (BASE64) [Y/n/?] y
+uuencode (4.4 kb) (UUENCODE) [Y/n/?] y
+wc (4.5 kb) (WC) [Y/n/?] y
+  Support very large counts (FEATURE_WC_LARGE) [N/y/?] n
+who (3.9 kb) (WHO) [Y/n/?] y
+w (3.8 kb) (W) [Y/n/?] y
+users (3.4 kb) (USERS) [N/y/?] n
+whoami (3.2 kb) (WHOAMI) [Y/n/?] y
+yes (1.2 kb) (YES) [Y/n/?] y
+*
+* Common options
+*
+Support verbose options (usually -v) for various applets (FEATURE_VERBOSE) [Y/n/?] y
+*
+* Common options for cp and mv
+*
+Preserve hard links (FEATURE_PRESERVE_HARDLINKS) [Y/n/?] y
+*
+* Common options for df, du, ls
+*
+Support human readable output (example 13k, 23M, 235G) (FEATURE_HUMAN_READABLE) [Y/n/?] y
+*
+* Console Utilities
+*
+chvt (2 kb) (CHVT) [Y/n/?] y
+clear (tiny) (CLEAR) [Y/n/?] y
+deallocvt (1.9 kb) (DEALLOCVT) [Y/n/?] y
+dumpkmap (1.6 kb) (DUMPKMAP) [Y/n/?] y
+fgconsole (1.5 kb) (FGCONSOLE) [N/y/?] n
+kbd_mode (4.1 kb) (KBD_MODE) [N/y/?] n
+loadfont (5.2 kb) (LOADFONT) [Y/n/?] y
+setfont (24 kb) (SETFONT) [N/y/?] n
+  *
+  * Common options for loadfont and setfont
+  *
+  Support PSF2 console fonts (FEATURE_LOADFONT_PSF2) [Y/n] y
+  Support old (raw) console fonts (FEATURE_LOADFONT_RAW) [Y/n] y
+loadkmap (1.8 kb) (LOADKMAP) [Y/n/?] y
+openvt (7.2 kb) (OPENVT) [Y/n/?] y
+reset (345 bytes) (RESET) [Y/n/?] y
+resize (903 bytes) (RESIZE) [Y/n/?] y
+  Print environment variables (FEATURE_RESIZE_PRINT) [Y/n/?] y
+setconsole (3.6 kb) (SETCONSOLE) [Y/n/?] y
+  Enable long options (FEATURE_SETCONSOLE_LONG_OPTIONS) [N/y] n
+setkeycodes (2.1 kb) (SETKEYCODES) [Y/n/?] y
+setlogcons (1.8 kb) (SETLOGCONS) [Y/n/?] y
+showkey (4.7 kb) (SHOWKEY) [N/y/?] n
+*
+* Debian Utilities
+*
+pipe_progress (275 bytes) (PIPE_PROGRESS) [Y/n/?] y
+run-parts (6.1 kb) (RUN_PARTS) [Y/n/?] y
+  Enable long options (FEATURE_RUN_PARTS_LONG_OPTIONS) [Y/n] y
+  Support additional arguments (FEATURE_RUN_PARTS_FANCY) [N/y/?] n
+start-stop-daemon (12 kb) (START_STOP_DAEMON) [Y/n/?] y
+  Enable long options (FEATURE_START_STOP_DAEMON_LONG_OPTIONS) [Y/n] y
+  Support additional arguments (FEATURE_START_STOP_DAEMON_FANCY) [Y/n/?] y
+which (3.8 kb) (WHICH) [Y/n/?] y
+*
+* klibc-utils
+*
+minips (11 kb) (MINIPS) [N/y/?] n
+nuke (2.9 kb) (NUKE) [Y/n/?] y
+resume (3.2 kb) (RESUME) [Y/n/?] y
+run-init (7.7 kb) (RUN_INIT) [Y/n/?] y
+*
+* Editors
+*
+awk (23 kb) (AWK) [Y/n/?] y
+  Enable math functions (requires libm) (FEATURE_AWK_LIBM) [N/y/?] n
+  Enable a few GNU extensions (FEATURE_AWK_GNU_EXTENSIONS) [Y/n/?] y
+cmp (4.9 kb) (CMP) [Y/n/?] y
+diff (13 kb) (DIFF) [Y/n/?] y
+  Enable long options (FEATURE_DIFF_LONG_OPTIONS) [N/y] n
+  Enable directory support (FEATURE_DIFF_DIR) [Y/n/?] y
+ed (21 kb) (ED) [N/y/?] n
+patch (9.4 kb) (PATCH) [Y/n/?] y
+sed (12 kb) (SED) [Y/n/?] y
+vi (23 kb) (VI) [Y/n/?] y
+  Maximum screen width (FEATURE_VI_MAX_LEN) [4096] 4096
+  Allow to display 8-bit chars (otherwise shows dots) (FEATURE_VI_8BIT) [Y/n/?] y
+  Enable ":" colon commands (no "ex" mode) (FEATURE_VI_COLON) [Y/n/?] y
+  Enable yank/put commands and mark cmds (FEATURE_VI_YANKMARK) [Y/n/?] y
+  Enable search and replace cmds (FEATURE_VI_SEARCH) [Y/n/?] y
+    Enable regex in search and replace (FEATURE_VI_REGEX_SEARCH) [N/y/?] n
+  Catch signals (FEATURE_VI_USE_SIGNALS) [Y/n/?] y
+  Remember previous cmd and "." cmd (FEATURE_VI_DOT_CMD) [Y/n/?] y
+  Enable -R option and "view" mode (FEATURE_VI_READONLY) [Y/n/?] y
+  Enable settable options, ai ic showmatch (FEATURE_VI_SETOPTS) [Y/n/?] y
+  Support :set (FEATURE_VI_SET) [Y/n] y
+  Handle window resize (FEATURE_VI_WIN_RESIZE) [Y/n/?] y
+  Use 'tell me cursor position' ESC sequence to measure window (FEATURE_VI_ASK_TERMINAL) [Y/n/?] y
+  Support undo command "u" (FEATURE_VI_UNDO) [Y/n/?] y
+    Enable undo operation queuing (FEATURE_VI_UNDO_QUEUE) [Y/n/?] y
+      Maximum undo character queue size (FEATURE_VI_UNDO_QUEUE_MAX) [256] 256
+  Allow vi and awk to execute shell commands (FEATURE_ALLOW_EXEC) [Y/n/?] y
+*
+* Finding Utilities
+*
+find (14 kb) (FIND) [Y/n/?] y
+  Enable -print0: NUL-terminated output (FEATURE_FIND_PRINT0) [Y/n/?] y
+  Enable -mtime: modified time matching (FEATURE_FIND_MTIME) [Y/n/?] y
+  Enable -mmin: modified time matching by minutes (FEATURE_FIND_MMIN) [Y/n/?] y
+  Enable -perm: permissions matching (FEATURE_FIND_PERM) [Y/n] y
+  Enable -type: file type matching (file/dir/link/...) (FEATURE_FIND_TYPE) [Y/n/?] y
+  Enable -executable: file is executable (FEATURE_FIND_EXECUTABLE) [Y/n] (NEW)   Enable -xdev: 'stay in filesystem' (FEATURE_FIND_XDEV) [Y/n] y
+  Enable -mindepth N and -maxdepth N (FEATURE_FIND_MAXDEPTH) [Y/n] y
+  Enable -newer: compare file modification times (FEATURE_FIND_NEWER) [Y/n/?] y
+  Enable -inum: inode number matching (FEATURE_FIND_INUM) [N/y] n
+  Enable -exec: execute commands (FEATURE_FIND_EXEC) [Y/n/?] y
+    Enable -exec ... {} + (FEATURE_FIND_EXEC_PLUS) [Y/n/?] y
+  Enable -user: username/uid matching (FEATURE_FIND_USER) [Y/n] y
+  Enable -group: group/gid matching (FEATURE_FIND_GROUP) [Y/n] y
+  Enable the 'not' (!) operator (FEATURE_FIND_NOT) [Y/n/?] y
+  Enable -depth (FEATURE_FIND_DEPTH) [Y/n/?] y
+  Enable parens in options (FEATURE_FIND_PAREN) [Y/n/?] y
+  Enable -size: file size matching (FEATURE_FIND_SIZE) [Y/n] y
+  Enable -prune: exclude subdirectories (FEATURE_FIND_PRUNE) [Y/n/?] y
+  Enable -quit: exit (FEATURE_FIND_QUIT) [Y/n/?] (NEW)   Enable -delete: delete files/dirs (FEATURE_FIND_DELETE) [N/y/?] n
+  Enable -path: match pathname with shell pattern (FEATURE_FIND_PATH) [Y/n/?] y
+  Enable -regex: match pathname with regex (FEATURE_FIND_REGEX) [Y/n/?] y
+  Enable -links: link count matching (FEATURE_FIND_LINKS) [N/y/?] n
+grep (8.6 kb) (GREP) [Y/n/?] y
+egrep (7.8 kb) (EGREP) [Y/n/?] y
+fgrep (7.8 kb) (FGREP) [Y/n/?] y
+  Enable before and after context flags (-A, -B and -C) (FEATURE_GREP_CONTEXT) [Y/n/?] y
+xargs (7.2 kb) (XARGS) [Y/n/?] y
+  Enable -p: prompt and confirmation (FEATURE_XARGS_SUPPORT_CONFIRMATION) [N/y/?] n
+  Enable single and double quotes and backslash (FEATURE_XARGS_SUPPORT_QUOTES) [Y/n/?] y
+  Enable -x: exit if -s or -n is exceeded (FEATURE_XARGS_SUPPORT_TERMOPT) [Y/n/?] y
+  Enable -0: NUL-terminated input (FEATURE_XARGS_SUPPORT_ZERO_TERM) [Y/n/?] y
+  Enable -I STR: string to replace (FEATURE_XARGS_SUPPORT_REPL_STR) [Y/n/?] y
+  Enable -P N: processes to run in parallel (FEATURE_XARGS_SUPPORT_PARALLEL) [Y/n] y
+  Enable -a FILE: use FILE instead of stdin (FEATURE_XARGS_SUPPORT_ARGS_FILE) [Y/n] y
+*
+* Init Utilities
+*
+bootchartd (10 kb) (BOOTCHARTD) [N/y/?] n
+halt (4 kb) (HALT) [Y/n/?] y
+poweroff (4 kb) (POWEROFF) [Y/n/?] y
+reboot (4 kb) (REBOOT) [Y/n/?] y
+  Before signaling init, make sure it is ready for it (FEATURE_WAIT_FOR_INIT) [Y/n/?] (NEW) init (10 kb) (INIT) [Y/n/?] y
+linuxrc: support running init from initrd (not initramfs) (LINUXRC) [Y/n/?] y
+  Support reading an inittab file (FEATURE_USE_INITTAB) [Y/n/?] y
+    Support killing processes that have been removed from inittab (FEATURE_KILL_REMOVED) [Y/n/?] y
+      How long to wait between TERM and KILL (0 - send TERM only) (FEATURE_KILL_DELAY) [0] 0
+  Run commands with leading dash with controlling tty (FEATURE_INIT_SCTTY) [Y/n/?] y
+  Enable init to write to syslog (FEATURE_INIT_SYSLOG) [Y/n/?] y
+  Be quiet on boot (no 'init started:' message) (FEATURE_INIT_QUIET) [Y/n] y
+  Support dumping core for child processes (debugging only) (FEATURE_INIT_COREDUMPS) [N/y/?] n
+  Initial terminal type (INIT_TERMINAL_TYPE) [linux] linux
+  Clear init's command line (FEATURE_INIT_MODIFY_CMDLINE) [Y/n/?] y
+*
+* Login/Password Management Utilities
+*
+Support shadow passwords (FEATURE_SHADOWPASSWDS) [Y/n/?] y
+Use internal password and group functions rather than system functions (USE_BB_PWD_GRP) [N/y/?] n
+Use internal crypt functions (USE_BB_CRYPT) [Y/n/?] y
+  Enable SHA256/512 crypt functions (USE_BB_CRYPT_SHA) [N/y/?] n
+add-shell (3.1 kb) (ADD_SHELL) [N/y/?] n
+remove-shell (3 kb) (REMOVE_SHELL) [N/y/?] n
+addgroup (8.6 kb) (ADDGROUP) [Y/n/?] y
+  Support adding users to groups (FEATURE_ADDUSER_TO_GROUP) [N/y/?] n
+adduser (15 kb) (ADDUSER) [Y/n/?] y
+  Enable sanity check on user/group names in adduser and addgroup (FEATURE_CHECK_NAMES) [N/y/?] n
+  Last valid uid or gid for adduser and addgroup (LAST_ID) [60000] 60000
+  First valid system uid or gid for adduser and addgroup (FIRST_SYSTEM_ID) [100] 100
+  Last valid system uid or gid for adduser and addgroup (LAST_SYSTEM_ID) [999] 999
+chpasswd (18 kb) (CHPASSWD) [N/y/?] n
+  Default encryption method (passwd -a, cryptpw -m, chpasswd -c ALG) (FEATURE_DEFAULT_PASSWD_ALGO) [md5] md5
+cryptpw (14 kb) (CRYPTPW) [N/y/?] n
+mkpasswd (15 kb) (MKPASSWD) [Y/n/?] y
+deluser (9.1 kb) (DELUSER) [Y/n/?] y
+delgroup (6.4 kb) (DELGROUP) [Y/n/?] y
+  Support removing users from groups (FEATURE_DEL_USER_FROM_GROUP) [N/y/?] n
+getty (10 kb) (GETTY) [Y/n/?] y
+login (24 kb) (LOGIN) [Y/n/?] y
+  Run logged in session in a child process (LOGIN_SESSION_AS_CHILD) [N/y/?] n
+  Support login scripts (LOGIN_SCRIPTS) [N/y/?] n
+  Support /etc/nologin (FEATURE_NOLOGIN) [Y/n/?] y
+  Support /etc/securetty (FEATURE_SECURETTY) [Y/n/?] y
+passwd (21 kb) (PASSWD) [Y/n/?] y
+  Check new passwords for weakness (FEATURE_PASSWD_WEAK_CHECK) [Y/n/?] y
+su (19 kb) (SU) [Y/n/?] y
+  Log to syslog all attempts to use su (FEATURE_SU_SYSLOG) [Y/n] y
+  If user's shell is not in /etc/shells, disallow -s PROG (FEATURE_SU_CHECKS_SHELLS) [Y/n] y
+  Allow blank passwords only on TTYs in /etc/securetty (FEATURE_SU_BLANK_PW_NEEDS_SECURE_TTY) [N/y] n
+sulogin (17 kb) (SULOGIN) [Y/n/?] y
+vlock (17 kb) (VLOCK) [Y/n/?] y
+*
+* Linux Ext2 FS Progs
+*
+chattr (3.8 kb) (CHATTR) [Y/n/?] y
+fsck (7.4 kb) (FSCK) [Y/n/?] y
+lsattr (5.5 kb) (LSATTR) [Y/n/?] y
+tune2fs (4.4 kb) (TUNE2FS) [N/y/?] n
+*
+* Linux Module Utilities
+*
+Simplified modutils (MODPROBE_SMALL) [N/y/?] n
+depmod (27 kb) (DEPMOD) [N/y/?] n
+insmod (22 kb) (INSMOD) [Y/n/?] y
+lsmod (1.9 kb) (LSMOD) [Y/n/?] y
+  Pretty output (FEATURE_LSMOD_PRETTY_2_6_OUTPUT) [Y/n/?] y
+modinfo (24 kb) (MODINFO) [N/y/?] n
+modprobe (28 kb) (MODPROBE) [Y/n/?] y
+  Blacklist support (FEATURE_MODPROBE_BLACKLIST) [N/y/?] n
+rmmod (3.3 kb) (RMMOD) [Y/n/?] y
+*
+* Options common to multiple modutils
+*
+Accept module options on modprobe command line (FEATURE_CMDLINE_MODULE_OPTIONS) [Y/n/?] y
+Support version 2.2/2.4 Linux kernels (FEATURE_2_4_MODULES) [N/y/?] n
+Support tainted module checking with new kernels (FEATURE_CHECK_TAINTED_MODULE) [Y/n/?] y
+Try to load module from a mmap'ed area (FEATURE_INSMOD_TRY_MMAP) [N/y/?] n
+Support module.aliases file (FEATURE_MODUTILS_ALIAS) [Y/n/?] y
+Support module.symbols file (FEATURE_MODUTILS_SYMBOLS) [Y/n/?] y
+Default directory containing modules (DEFAULT_MODULES_DIR) [/lib/modules] /lib/modules
+Default name of modules.dep (DEFAULT_DEPMOD_FILE) [modules.dep] modules.dep
+*
+* Linux System Utilities
+*
+acpid (9 kb) (ACPID) [N/y/?] n
+blkdiscard (4.3 kb) (BLKDISCARD) [N/y/?] n
+blkid (12 kb) (BLKID) [Y/n/?] y
+  Print filesystem type (FEATURE_BLKID_TYPE) [N/y/?] n
+blockdev (2.3 kb) (BLOCKDEV) [N/y/?] n
+cal (5.8 kb) (CAL) [N/y/?] n
+chrt (4.7 kb) (CHRT) [Y/n/?] y
+dmesg (3.7 kb) (DMESG) [Y/n/?] y
+  Pretty output (FEATURE_DMESG_PRETTY) [Y/n/?] y
+eject (4 kb) (EJECT) [Y/n/?] y
+  SCSI support (FEATURE_EJECT_SCSI) [N/y/?] n
+fallocate (4.1 kb) (FALLOCATE) [Y/n/?] y
+fatattr (1.9 kb) (FATATTR) [N/y/?] n
+fbset (5.9 kb) (FBSET) [Y/n/?] y
+  Enable extra options (FEATURE_FBSET_FANCY) [Y/n/?] y
+  Enable readmode support (FEATURE_FBSET_READMODE) [Y/n/?] y
+fdformat (4.4 kb) (FDFORMAT) [Y/n/?] y
+fdisk (37 kb) (FDISK) [Y/n/?] y
+  Write support (FEATURE_FDISK_WRITABLE) [Y/n/?] y
+    Support AIX disklabels (FEATURE_AIX_LABEL) [N/y/?] n
+    Support SGI disklabels (FEATURE_SGI_LABEL) [N/y/?] n
+    Support SUN disklabels (FEATURE_SUN_LABEL) [N/y/?] n
+    Support BSD disklabels (FEATURE_OSF_LABEL) [N/y/?] n
+    Support GPT disklabels (FEATURE_GPT_LABEL) [Y/n/?] y
+    Support expert mode (FEATURE_FDISK_ADVANCED) [Y/n/?] y
+findfs (12 kb) (FINDFS) [N/y/?] n
+flock (6.3 kb) (FLOCK) [Y/n/?] y
+fdflush (1.3 kb) (FDFLUSH) [Y/n/?] y
+freeramdisk (1.3 kb) (FREERAMDISK) [Y/n/?] y
+fsck.minix (13 kb) (FSCK_MINIX) [N/y/?] n
+fsfreeze (3.5 kb) (FSFREEZE) [Y/n/?] y
+fstrim (4.4 kb) (FSTRIM) [Y/n/?] y
+getopt (5.8 kb) (GETOPT) [Y/n/?] y
+  Support -l LONGOPTs (FEATURE_GETOPT_LONG) [Y/n/?] y
+hexdump (8.6 kb) (HEXDUMP) [Y/n/?] y
+  Support -R, reverse of 'hexdump -Cv' (FEATURE_HEXDUMP_REVERSE) [N/y/?] n
+hd (7.8 kb) (HD) [N/y/?] n
+xxd (8.9 kb) (XXD) [Y/n/?] y
+hwclock (5.8 kb) (HWCLOCK) [Y/n/?] y
+  Use FHS /var/lib/hwclock/adjtime (FEATURE_HWCLOCK_ADJTIME_FHS) [Y/n/?] y
+ionice (3.8 kb) (IONICE) [N/y/?] n
+ipcrm (3.2 kb) (IPCRM) [Y/n/?] y
+ipcs (11 kb) (IPCS) [Y/n/?] y
+last (6.1 kb) (LAST) [Y/n/?] y
+  Output extra information (FEATURE_LAST_FANCY) [N/y/?] n
+losetup (5.5 kb) (LOSETUP) [Y/n/?] y
+lspci (6.3 kb) (LSPCI) [Y/n/?] y
+lsusb (4.2 kb) (LSUSB) [Y/n/?] y
+mdev (17 kb) (MDEV) [Y/n/?] y
+  Support /etc/mdev.conf (FEATURE_MDEV_CONF) [Y/n/?] y
+    Support subdirs/symlinks (FEATURE_MDEV_RENAME) [Y/n/?] y
+      Support regular expressions substitutions when renaming device (FEATURE_MDEV_RENAME_REGEXP) [N/y/?] n
+    Support command execution at device addition/removal (FEATURE_MDEV_EXEC) [Y/n/?] y
+  Support loading of firmware (FEATURE_MDEV_LOAD_FIRMWARE) [N/y/?] n
+  Support daemon mode (FEATURE_MDEV_DAEMON) [Y/n/?] y
+mesg (1.4 kb) (MESG) [Y/n/?] y
+  Enable writing to tty only by group, not by everybody (FEATURE_MESG_ENABLE_ONLY_GROUP) [Y/n/?] y
+mke2fs (10 kb) (MKE2FS) [Y/n/?] y
+mkfs.ext2 (10 kb) (MKFS_EXT2) [N/y/?] n
+mkfs.minix (10 kb) (MKFS_MINIX) [N/y/?] n
+mkfs_reiser (MKFS_REISER) [N/y/?] n
+mkdosfs (7.2 kb) (MKDOSFS) [Y/n/?] y
+mkfs.vfat (7.2 kb) (MKFS_VFAT) [N/y/?] n
+mkswap (6.3 kb) (MKSWAP) [Y/n/?] y
+  UUID support (FEATURE_MKSWAP_UUID) [N/y/?] n
+more (7 kb) (MORE) [Y/n/?] y
+mount (23 kb) (MOUNT) [Y/n/?] y
+  Support -f (fake mount) (FEATURE_MOUNT_FAKE) [N/y/?] n
+  Support -v (verbose) (FEATURE_MOUNT_VERBOSE) [N/y/?] n
+  Support mount helpers (FEATURE_MOUNT_HELPERS) [N/y/?] n
+  Support specifying devices by label or UUID (FEATURE_MOUNT_LABEL) [N/y/?] n
+  Support mounting NFS file systems on Linux < 2.6.23 (FEATURE_MOUNT_NFS) [N/y/?] n
+  Support mounting CIFS/SMB file systems (FEATURE_MOUNT_CIFS) [Y/n/?] y
+  Support lots of -o flags (FEATURE_MOUNT_FLAGS) [Y/n/?] y
+  Support /etc/fstab and -a (mount all) (FEATURE_MOUNT_FSTAB) [Y/n/?] y
+    Support -T <alt_fstab> (FEATURE_MOUNT_OTHERTAB) [Y/n/?] y
+mountpoint (4.9 kb) (MOUNTPOINT) [Y/n/?] y
+nologin (NOLOGIN) [Y/n/?] (NEW)   Enable dependencies for nologin (NOLOGIN_DEPENDENCIES) [Y/n/?] (NEW) nsenter (6.5 kb) (NSENTER) [N/y/?] n
+pivot_root (1.1 kb) (PIVOT_ROOT) [Y/n/?] y
+rdate (5.6 kb) (RDATE) [Y/n/?] y
+rdev (1.8 kb) (RDEV) [N/y/?] n
+readprofile (7.1 kb) (READPROFILE) [Y/n/?] y
+renice (4.2 kb) (RENICE) [Y/n/?] y
+rev (4.4 kb) (REV) [N/y/?] n
+rtcwake (6.8 kb) (RTCWAKE) [N/y/?] n
+script (8.6 kb) (SCRIPT) [N/y/?] n
+scriptreplay (2.4 kb) (SCRIPTREPLAY) [N/y/?] n
+setarch (3.6 kb) (SETARCH) [Y/n/?] y
+linux32 (3.3 kb) (LINUX32) [Y/n/?] y
+linux64 (3.3 kb) (LINUX64) [Y/n/?] y
+setpriv (6.6 kb) (SETPRIV) [Y/n/?] y
+  Support dumping current privilege state (FEATURE_SETPRIV_DUMP) [Y/n/?] y
+  Support capabilities (FEATURE_SETPRIV_CAPABILITIES) [Y/n/?] y
+    Support capability names (FEATURE_SETPRIV_CAPABILITY_NAMES) [Y/n/?] y
+setsid (3.6 kb) (SETSID) [Y/n/?] y
+swapon (15 kb) (SWAPON) [Y/n/?] y
+  Support discard option -d (FEATURE_SWAPON_DISCARD) [N/y/?] n
+  Support priority option -p (FEATURE_SWAPON_PRI) [N/y/?] n
+swapoff (14 kb) (SWAPOFF) [Y/n] y
+  Support specifying devices by label or UUID (FEATURE_SWAPONOFF_LABEL) [Y/n/?] y
+switch_root (5.5 kb) (SWITCH_ROOT) [Y/n/?] y
+taskset (4.2 kb) (TASKSET) [N/y/?] n
+uevent (3.1 kb) (UEVENT) [Y/n/?] y
+umount (5.1 kb) (UMOUNT) [Y/n/?] y
+  Support -a (unmount all) (FEATURE_UMOUNT_ALL) [Y/n/?] y
+unshare (7.2 kb) (UNSHARE) [N/y/?] n
+wall (2.6 kb) (WALL) [N/y/?] n
+*
+* Common options for mount/umount
+*
+Support loopback mounts (FEATURE_MOUNT_LOOP) [Y/n/?] y
+  Create new loopback devices if needed (FEATURE_MOUNT_LOOP_CREATE) [Y/n/?] y
+Support old /etc/mtab file (FEATURE_MTAB_SUPPORT) [N/y/?] n
+*
+* Filesystem/Volume identification
+*
+bcache filesystem (FEATURE_VOLUMEID_BCACHE) [N/y] n
+btrfs filesystem (FEATURE_VOLUMEID_BTRFS) [N/y] n
+cramfs filesystem (FEATURE_VOLUMEID_CRAMFS) [N/y] n
+exFAT filesystem (FEATURE_VOLUMEID_EXFAT) [Y/n/?] y
+Ext filesystem (FEATURE_VOLUMEID_EXT) [Y/n] y
+f2fs filesystem (FEATURE_VOLUMEID_F2FS) [Y/n/?] y
+fat filesystem (FEATURE_VOLUMEID_FAT) [Y/n] y
+hfs filesystem (FEATURE_VOLUMEID_HFS) [N/y] n
+iso9660 filesystem (FEATURE_VOLUMEID_ISO9660) [N/y] n
+jfs filesystem (FEATURE_VOLUMEID_JFS) [N/y] n
+linuxraid (FEATURE_VOLUMEID_LINUXRAID) [N/y] n
+linux swap filesystem (FEATURE_VOLUMEID_LINUXSWAP) [N/y] n
+luks filesystem (FEATURE_VOLUMEID_LUKS) [N/y] n
+minix filesystem (FEATURE_VOLUMEID_MINIX) [Y/n] y
+nilfs filesystem (FEATURE_VOLUMEID_NILFS) [N/y/?] n
+ntfs filesystem (FEATURE_VOLUMEID_NTFS) [N/y] n
+ocfs2 filesystem (FEATURE_VOLUMEID_OCFS2) [N/y] n
+Reiser filesystem (FEATURE_VOLUMEID_REISERFS) [N/y] n
+romfs filesystem (FEATURE_VOLUMEID_ROMFS) [N/y] n
+sysv filesystem (FEATURE_VOLUMEID_SYSV) [N/y] n
+UBIFS filesystem (FEATURE_VOLUMEID_UBIFS) [Y/n/?] y
+udf filesystem (FEATURE_VOLUMEID_UDF) [N/y] n
+xfs filesystem (FEATURE_VOLUMEID_XFS) [N/y] n
+*
+* Miscellaneous Utilities
+*
+adjtimex (4.7 kb) (ADJTIMEX) [N/y/?] n
+bbconfig (9.7 kb) (BBCONFIG) [N/y/?] n
+bc (45 kb) (BC) [Y/n/?] (NEW) dc (36 kb) (DC) [Y/n/?] y
+  Use bc code base for dc (larger, more features) (FEATURE_DC_BIG) [Y] (NEW) y
+    Interactive mode (+4kb) (FEATURE_BC_INTERACTIVE) [Y/n/?] (NEW)     Enable bc/dc long options (FEATURE_BC_LONG_OPTIONS) [Y/n] (NEW) beep (2.4 kb) (BEEP) [N/y/?] n
+chat (6.3 kb) (CHAT) [N/y/?] n
+conspy (10 kb) (CONSPY) [N/y/?] n
+crond (14 kb) (CROND) [Y/n/?] y
+  Support -d (redirect output to stderr) (FEATURE_CROND_D) [N/y/?] n
+  Report command output via email (using sendmail) (FEATURE_CROND_CALL_SENDMAIL) [N/y/?] n
+  Support special times (@reboot, @daily, etc) in crontabs (FEATURE_CROND_SPECIAL_TIMES) [Y/n/?] y
+  crond spool directory (FEATURE_CROND_DIR) [/var/spool/cron] /var/spool/cron
+crontab (10 kb) (CRONTAB) [Y/n/?] y
+devfsd (obsolete) (DEVFSD) [N/y/?] n
+Use devfs names for all devices (obsolete) (FEATURE_DEVFS) [N/y/?] n
+devmem (2.5 kb) (DEVMEM) [Y/n/?] y
+fbsplash (26 kb) (FBSPLASH) [N/y/?] n
+flash_eraseall (5.9 kb) (FLASH_ERASEALL) [N/y/?] n
+flash_lock (2.1 kb) (FLASH_LOCK) [N/y/?] n
+flash_unlock (1.3 kb) (FLASH_UNLOCK) [N/y/?] n
+flashcp (5.3 kb) (FLASHCP) [N/y/?] n
+hdparm (25 kb) (HDPARM) [Y/n/?] y
+  Support obtaining detailed information directly from drives (FEATURE_HDPARM_GET_IDENTITY) [Y/n/?] y
+  Register an IDE interface (DANGEROUS) (FEATURE_HDPARM_HDIO_SCAN_HWIF) [N/y/?] n
+  Un-register an IDE interface (DANGEROUS) (FEATURE_HDPARM_HDIO_UNREGISTER_HWIF) [N/y/?] n
+  Perform device reset (DANGEROUS) (FEATURE_HDPARM_HDIO_DRIVE_RESET) [N/y/?] n
+  Tristate device for hotswap (DANGEROUS) (FEATURE_HDPARM_HDIO_TRISTATE_HWIF) [N/y/?] n
+  Get/set using_dma flag (FEATURE_HDPARM_HDIO_GETSET_DMA) [N/y/?] n
+hexedit (21 kb) (HEXEDIT) [Y/n/?] y
+i2cget (5.5 kb) (I2CGET) [Y/n/?] y
+i2cset (6.7 kb) (I2CSET) [Y/n/?] y
+i2cdump (7.1 kb) (I2CDUMP) [Y/n/?] y
+i2cdetect (7.1 kb) (I2CDETECT) [Y/n/?] y
+i2ctransfer (4.0 kb) (I2CTRANSFER) [Y/n/?] (NEW) inotifyd (3.6 kb) (INOTIFYD) [N/y/?] n
+less (16 kb) (LESS) [Y/n/?] y
+  Max number of input lines less will try to eat (FEATURE_LESS_MAXLINES) [9999999] 9999999
+  Enable bracket searching (FEATURE_LESS_BRACKETS) [Y/n/?] y
+  Enable -m/-M (FEATURE_LESS_FLAGS) [Y/n/?] y
+  Enable -S (FEATURE_LESS_TRUNCATE) [Y/n/?] y
+  Enable marks (FEATURE_LESS_MARKS) [N/y/?] n
+  Enable regular expressions (FEATURE_LESS_REGEXP) [Y/n/?] y
+  Enable automatic resizing on window size changes (FEATURE_LESS_WINCH) [N/y/?] n
+  Enable flag changes ('-' command) (FEATURE_LESS_DASHCMD) [N/y/?] n
+lsscsi (2.5 kb) (LSSCSI) [Y/n/?] y
+makedevs (9.2 kb) (MAKEDEVS) [Y/n/?] y
+  Choose makedevs behaviour
+    1. leaf (FEATURE_MAKEDEVS_LEAF)
+  > 2. table (FEATURE_MAKEDEVS_TABLE)
+  choice[1-2]: 2
+man (26 kb) (MAN) [N/y/?] n
+microcom (5.7 kb) (MICROCOM) [Y/n/?] y
+mt (2.5 kb) (MT) [Y/n/?] y
+nandwrite (4.8 kb) (NANDWRITE) [N/y/?] n
+nanddump (5.2 kb) (NANDDUMP) [N/y/?] n
+partprobe (3.5 kb) (PARTPROBE) [Y/n/?] y
+raidautorun (1.3 kb) (RAIDAUTORUN) [N/y/?] n
+readahead (1.5 kb) (READAHEAD) [N/y/?] n
+rfkill (4.4 kb) (RFKILL) [N/y/?] n
+runlevel (559 bytes) (RUNLEVEL) [Y/n/?] y
+rx (2.9 kb) (RX) [N/y/?] n
+setfattr (3.7 kb) (SETFATTR) [Y/n/?] y
+setserial (6.9 kb) (SETSERIAL) [Y/n/?] y
+strings (4.6 kb) (STRINGS) [Y/n/?] y
+time (6.8 kb) (TIME) [Y/n/?] y
+ts (450 bytes) (TS) [Y/n] (NEW) ttysize (432 bytes) (TTYSIZE) [N/y/?] n
+ubiattach (4.2 kb) (UBIATTACH) [N/y/?] n
+ubidetach (4.1 kb) (UBIDETACH) [N/y/?] n
+ubimkvol (5.3 kb) (UBIMKVOL) [N/y/?] n
+ubirmvol (4.9 kb) (UBIRMVOL) [N/y/?] n
+ubirsvol (4.2 kb) (UBIRSVOL) [N/y/?] n
+ubiupdatevol (5.2 kb) (UBIUPDATEVOL) [N/y/?] n
+ubirename (2.4 kb) (UBIRENAME) [Y/n/?] y
+volname (1.6 kb) (VOLNAME) [N/y/?] n
+watchdog (5.3 kb) (WATCHDOG) [Y/n/?] y
+*
+* Networking Utilities
+*
+Enable IPv6 support (FEATURE_IPV6) [Y/n/?] y
+Enable Unix domain socket support (usually not needed) (FEATURE_UNIX_LOCAL) [N/y/?] n
+Prefer IPv4 addresses from DNS queries (FEATURE_PREFER_IPV4_ADDRESS) [Y/n/?] y
+Verbose resolution errors (VERBOSE_RESOLUTION_ERRORS) [N/y/?] n
+arp (10 kb) (ARP) [Y/n/?] y
+arping (9 kb) (ARPING) [Y/n/?] y
+brctl (4.7 kb) (BRCTL) [N/y/?] n
+dnsd (9.8 kb) (DNSD) [Y/n/?] y
+ether-wake (4.9 kb) (ETHER_WAKE) [Y/n/?] y
+ftpd (30 kb) (FTPD) [N/y/?] n
+ftpget (7.8 kb) (FTPGET) [N/y/?] n
+ftpput (7.5 kb) (FTPPUT) [N/y/?] n
+hostname (5.5 kb) (HOSTNAME) [Y/n/?] y
+dnsdomainname (3.6 kb) (DNSDOMAINNAME) [Y/n/?] y
+httpd (32 kb) (HTTPD) [N/y/?] n
+ifconfig (12 kb) (IFCONFIG) [Y/n/?] y
+  Enable status reporting output (+7k) (FEATURE_IFCONFIG_STATUS) [Y/n/?] y
+  Enable slip-specific options "keepalive" and "outfill" (FEATURE_IFCONFIG_SLIP) [Y/n/?] y
+  Enable options "mem_start", "io_addr", and "irq" (FEATURE_IFCONFIG_MEMSTART_IOADDR_IRQ) [Y/n/?] y
+  Enable option "hw" (ether only) (FEATURE_IFCONFIG_HW) [Y/n/?] y
+  Set the broadcast automatically (FEATURE_IFCONFIG_BROADCAST_PLUS) [N/y/?] n
+ifenslave (13 kb) (IFENSLAVE) [N/y/?] n
+ifplugd (10 kb) (IFPLUGD) [N/y/?] n
+ifup (14 kb) (IFUP) [Y/n/?] y
+ifdown (13 kb) (IFDOWN) [Y/n/?] y
+  Absolute path to ifstate file (IFUPDOWN_IFSTATE_PATH) [/var/run/ifstate] /var/run/ifstate
+  Use ip tool (else ifconfig/route is used) (FEATURE_IFUPDOWN_IP) [Y/n/?] y
+  Support IPv4 (FEATURE_IFUPDOWN_IPV4) [Y/n/?] y
+  Support IPv6 (FEATURE_IFUPDOWN_IPV6) [Y/n/?] y
+  Enable mapping support (FEATURE_IFUPDOWN_MAPPING) [Y/n/?] y
+  Support external DHCP clients (FEATURE_IFUPDOWN_EXTERNAL_DHCP) [N/y/?] n
+inetd (18 kb) (INETD) [Y/n/?] y
+  Support echo service on port 7 (FEATURE_INETD_SUPPORT_BUILTIN_ECHO) [Y/n/?] y
+  Support discard service on port 8 (FEATURE_INETD_SUPPORT_BUILTIN_DISCARD) [Y/n/?] y
+  Support time service on port 37 (FEATURE_INETD_SUPPORT_BUILTIN_TIME) [Y/n/?] y
+  Support daytime service on port 13 (FEATURE_INETD_SUPPORT_BUILTIN_DAYTIME) [Y/n/?] y
+  Support chargen service on port 19 (FEATURE_INETD_SUPPORT_BUILTIN_CHARGEN) [Y/n/?] y
+  Support RPC services (FEATURE_INETD_RPC) [N/y/?] n
+ip (35 kb) (IP) [Y/n/?] y
+ipaddr (14 kb) (IPADDR) [Y/n/?] y
+iplink (17 kb) (IPLINK) [Y/n/?] y
+iproute (15 kb) (IPROUTE) [Y/n/?] y
+iptunnel (9.6 kb) (IPTUNNEL) [Y/n/?] y
+iprule (10 kb) (IPRULE) [Y/n/?] y
+ipneigh (8.3 kb) (IPNEIGH) [Y/n/?] y
+ip address (FEATURE_IP_ADDRESS) [Y/?] y
+ip link (FEATURE_IP_LINK) [Y/?] y
+ip route (FEATURE_IP_ROUTE) [Y/?] y
+  ip route configuration directory (FEATURE_IP_ROUTE_DIR) [/etc/iproute2] /etc/iproute2
+ip tunnel (FEATURE_IP_TUNNEL) [Y/?] y
+ip rule (FEATURE_IP_RULE) [Y/?] y
+ip neighbor (FEATURE_IP_NEIGH) [Y/?] y
+Support displaying rarely used link types (FEATURE_IP_RARE_PROTOCOLS) [N/y/?] n
+ipcalc (4.4 kb) (IPCALC) [N/y/?] n
+fakeidentd (8.7 kb) (FAKEIDENTD) [N/y/?] n
+nameif (6.6 kb) (NAMEIF) [Y/n/?] y
+  Extended nameif (FEATURE_NAMEIF_EXTENDED) [N/y/?] n
+nbd-client (6 kb) (NBDCLIENT) [N/y/?] n
+nc (11 kb) (NC) [N/y/?] n
+netcat (11 kb) (NETCAT) [N/y/?] n
+netstat (10 kb) (NETSTAT) [Y/n/?] y
+  Enable wide output (FEATURE_NETSTAT_WIDE) [N/y/?] n
+  Enable PID/Program name output (FEATURE_NETSTAT_PRG) [N/y/?] n
+nslookup (9.7 kb) (NSLOOKUP) [Y/n/?] y
+  Use internal resolver code instead of libc (FEATURE_NSLOOKUP_BIG) [Y/n] (NEW)     Enable long options (FEATURE_NSLOOKUP_LONG_OPTIONS) [Y/n] (NEW) ntpd (22 kb) (NTPD) [N/y/?] n
+ping (10 kb) (PING) [Y/n/?] y
+ping6 (11 kb) (PING6) [N/y/?] n
+Enable fancy ping output (FEATURE_FANCY_PING) [Y/n/?] y
+pscan (6 kb) (PSCAN) [N/y/?] n
+route (8.7 kb) (ROUTE) [Y/n/?] y
+slattach (6.2 kb) (SLATTACH) [N/y/?] n
+ssl_client (25 kb) (SSL_CLIENT) [N/y/?] n
+tc (8.3 kb) (TC) [Y/n/?] (NEW)   Enable ingress (FEATURE_TC_INGRESS) [Y/n] (NEW) tcpsvd (14 kb) (TCPSVD) [N/y/?] n
+udpsvd (13 kb) (UDPSVD) [N/y/?] n
+telnet (8.8 kb) (TELNET) [Y/n/?] y
+  Pass TERM type to remote host (FEATURE_TELNET_TTYPE) [Y/n/?] y
+  Pass USER type to remote host (FEATURE_TELNET_AUTOLOGIN) [Y/n/?] y
+  Enable window size autodetection (FEATURE_TELNET_WIDTH) [Y/n] y
+telnetd (12 kb) (TELNETD) [N/y/?] n
+tftp (11 kb) (TFTP) [Y/n/?] y
+  Enable progress bar (FEATURE_TFTP_PROGRESS_BAR) [N/y] n
+  tftp-hpa compat (support -c get/put FILE) (FEATURE_TFTP_HPA_COMPAT) [Y/n] (NEW) tftpd (10 kb) (TFTPD) [N/y/?] n
+  Enable 'tftp get' and/or tftpd upload code (FEATURE_TFTP_GET) [Y/n/?] y
+  Enable 'tftp put' and/or tftpd download code (FEATURE_TFTP_PUT) [Y/n/?] y
+  Enable 'blksize' and 'tsize' protocol options (FEATURE_TFTP_BLOCKSIZE) [Y/n/?] y
+  Enable debug (TFTP_DEBUG) [N/y/?] n
+traceroute (11 kb) (TRACEROUTE) [Y/n/?] y
+traceroute6 (13 kb) (TRACEROUTE6) [N/y/?] n
+Enable verbose output (FEATURE_TRACEROUTE_VERBOSE) [N/y/?] n
+Enable -I option (use ICMP instead of UDP) (FEATURE_TRACEROUTE_USE_ICMP) [N/y] n
+tunctl (6.2 kb) (TUNCTL) [N/y/?] n
+vconfig (2.3 kb) (VCONFIG) [Y/n/?] y
+wget (38 kb) (WGET) [Y/n/?] y
+  Enable long options (FEATURE_WGET_LONG_OPTIONS) [Y/n] y
+  Enable progress bar (+2k) (FEATURE_WGET_STATUSBAR) [Y/n] y
+  Enable HTTP authentication (FEATURE_WGET_AUTHENTICATION) [Y/n/?] y
+  Enable timeout option -T SEC (FEATURE_WGET_TIMEOUT) [Y/n/?] y
+  Support HTTPS using internal TLS code (FEATURE_WGET_HTTPS) [N/y/?] n
+  Try to connect to HTTPS using openssl (FEATURE_WGET_OPENSSL) [N/y/?] n
+whois (6.3 kb) (WHOIS) [N/y/?] n
+zcip (8.4 kb) (ZCIP) [N/y/?] n
+udhcpd (21 kb) (UDHCPD) [N/y/?] n
+dumpleases (5.1 kb) (DUMPLEASES) [N/y/?] n
+dhcprelay (5.2 kb) (DHCPRELAY) [N/y/?] n
+udhcpc (24 kb) (UDHCPC) [Y/n/?] y
+  Verify that the offered address is free, using ARP ping (FEATURE_UDHCPC_ARPING) [Y/n/?] y
+  Do not pass malformed host and domain names (FEATURE_UDHCPC_SANITIZEOPT) [Y/n/?] y
+  Absolute path to config script (UDHCPC_DEFAULT_SCRIPT) [/usr/share/udhcpc/default.script] /usr/share/udhcpc/default.script
+udhcpc6 (21 kb) (UDHCPC6) [N/y/?] n
+*
+* Common options for DHCP applets
+*
+Enable '-P port' option for udhcpd and udhcpc (FEATURE_UDHCP_PORT) [N/y/?] n
+Maximum verbosity level (0..9) (UDHCP_DEBUG) [0] 0
+DHCP options slack buffer size (UDHCPC_SLACK_FOR_BUGGY_SERVERS) [80] 80
+Support RFC 3397 domain search options (FEATURE_UDHCP_RFC3397) [Y/n/?] y
+Support 802.1Q VLAN parameters options (FEATURE_UDHCP_8021Q) [Y/n/?] y
+ifup udhcpc command line options (IFUPDOWN_UDHCPC_CMD_OPTIONS) [-R -n -O search] -R -n -O search
+*
+* Print Utilities
+*
+lpd (5.5 kb) (LPD) [N/y/?] n
+lpr (9.9 kb) (LPR) [N/y/?] n
+lpq (9.9 kb) (LPQ) [N/y/?] n
+*
+* Mail Utilities
+*
+makemime (5.4 kb) (MAKEMIME) [N/y/?] n
+popmaildir (10 kb) (POPMAILDIR) [N/y/?] n
+reformime (7.5 kb) (REFORMIME) [N/y/?] n
+sendmail (14 kb) (SENDMAIL) [N/y/?] n
+*
+* Process Utilities
+*
+free (3.1 kb) (FREE) [Y/n/?] y
+fuser (7 kb) (FUSER) [Y/n/?] y
+iostat (7.6 kb) (IOSTAT) [N/y/?] n
+kill (3.1 kb) (KILL) [Y/n/?] y
+killall (5.6 kb) (KILLALL) [Y/n/?] y
+killall5 (5.3 kb) (KILLALL5) [Y/n/?] y
+lsof (3.4 kb) (LSOF) [Y/n/?] y
+mpstat (9.8 kb) (MPSTAT) [N/y/?] n
+nmeter (11 kb) (NMETER) [N/y/?] n
+pgrep (6.5 kb) (PGREP) [N/y/?] n
+pkill (7.5 kb) (PKILL) [N/y/?] n
+pidof (6.3 kb) (PIDOF) [Y/n/?] y
+  Enable single shot (-s) (FEATURE_PIDOF_SINGLE) [Y/n/?] y
+  Enable omitting pids (-o PID) (FEATURE_PIDOF_OMIT) [Y/n/?] y
+pmap (6 kb) (PMAP) [N/y/?] n
+powertop (9.6 kb) (POWERTOP) [N/y/?] n
+ps (11 kb) (PS) [Y/n/?] y
+  Enable -o time and -o etime specifiers (FEATURE_PS_TIME) [N/y] n
+  Enable -o rgroup, -o ruser, -o nice specifiers (FEATURE_PS_ADDITIONAL_COLUMNS) [N/y] n
+pstree (9.3 kb) (PSTREE) [N/y/?] n
+pwdx (3.7 kb) (PWDX) [N/y/?] n
+smemcap (2.5 kb) (SMEMCAP) [N/y/?] n
+sysctl (7.4 kb) (BB_SYSCTL) [Y/n/?] y
+top (18 kb) (TOP) [Y/n/?] y
+  Accept keyboard commands (FEATURE_TOP_INTERACTIVE) [Y/n/?] y
+  Show CPU per-process usage percentage (FEATURE_TOP_CPU_USAGE_PERCENTAGE) [Y/n/?] y
+    Show CPU global usage percentage (FEATURE_TOP_CPU_GLOBAL_PERCENTS) [Y/n/?] y
+      SMP CPU usage display ('c' key) (FEATURE_TOP_SMP_CPU) [N/y/?] n
+    Show 1/10th of a percent in CPU/mem statistics (FEATURE_TOP_DECIMALS) [N/y/?] n
+  Show CPU process runs on ('j' field) (FEATURE_TOP_SMP_PROCESS) [N/y/?] n
+  Topmem command ('s' key) (FEATURE_TOPMEM) [N/y/?] n
+uptime (3.7 kb) (UPTIME) [Y/n/?] y
+  Show the number of users (FEATURE_UPTIME_UTMP_SUPPORT) [N/y/?] n
+watch (4.4 kb) (WATCH) [Y/n/?] y
+Support thread display in ps/pstree/top (FEATURE_SHOW_THREADS) [N/y/?] n
+*
+* Runit Utilities
+*
+chpst (9 kb) (CHPST) [N/y/?] n
+setuidgid (4 kb) (SETUIDGID) [N/y/?] n
+envuidgid (3.9 kb) (ENVUIDGID) [N/y/?] n
+envdir (2.5 kb) (ENVDIR) [N/y/?] n
+softlimit (4.5 kb) (SOFTLIMIT) [N/y/?] n
+runsv (7.8 kb) (RUNSV) [N/y/?] n
+runsvdir (6.3 kb) (RUNSVDIR) [N/y/?] n
+sv (8.5 kb) (SV) [N/y/?] n
+  Default directory for services (SV_DEFAULT_SERVICE_DIR) [] 
+svc (8.4 kb) (SVC) [Y/n/?] y
+svok (1.5 kb) (SVOK) [Y/n/?] (NEW) svlogd (16 kb) (SVLOGD) [N/y/?] n
+*
+* Shells
+*
+Choose which shell is aliased to 'sh' name
+> 1. ash (SH_IS_ASH)
+  2. hush (SH_IS_HUSH)
+  3. none (SH_IS_NONE)
+choice[1-3?]: 1
+Choose which shell is aliased to 'bash' name
+  1. ash (BASH_IS_ASH)
+  2. hush (BASH_IS_HUSH)
+> 3. none (BASH_IS_NONE)
+choice[1-3?]: 3
+ash (78 kb) (ASH) [Y/n/?] y
+  Optimize for size instead of speed (ASH_OPTIMIZE_FOR_SIZE) [Y/n] y
+  Use internal glob() implementation (ASH_INTERNAL_GLOB) [Y/n/?] y
+  bash-compatible extensions (ASH_BASH_COMPAT) [Y/n] y
+    'source' and '.' builtins search current directory after $PATH (ASH_BASH_SOURCE_CURDIR) [N/y/?] (NEW)     command_not_found_handle hook support (ASH_BASH_NOT_FOUND_HOOK) [Y/n/?] (NEW)   Job control (ASH_JOB_CONTROL) [Y/n] y
+  Alias support (ASH_ALIAS) [Y/n] y
+  Pseudorandom generator and $RANDOM variable (ASH_RANDOM_SUPPORT) [Y/n/?] y
+  Expand prompt string (ASH_EXPAND_PRMT) [Y/n/?] y
+  Idle timeout variable $TMOUT (ASH_IDLE_TIMEOUT) [Y/n/?] y
+  Check for new mail in interactive shell (ASH_MAIL) [N/y/?] n
+  echo builtin (ASH_ECHO) [Y/n] y
+  printf builtin (ASH_PRINTF) [Y/n] y
+  test builtin (ASH_TEST) [Y/n] y
+  help builtin (ASH_HELP) [Y/n] y
+  getopts builtin (ASH_GETOPTS) [Y/n] y
+  command builtin (ASH_CMDCMD) [Y/n/?] y
+cttyhack (2.4 kb) (CTTYHACK) [N/y/?] n
+hush (68 kb) (HUSH) [N/y/?] n
+*
+* Options common to all shells
+*
+POSIX math support (FEATURE_SH_MATH) [Y/n/?] y
+  Extend POSIX math support to 64 bit (FEATURE_SH_MATH_64) [Y/n/?] y
+  Support BASE#nnnn literals (FEATURE_SH_MATH_BASE) [Y/n] (NEW) Hide message on interactive shell startup (FEATURE_SH_EXTRA_QUIET) [Y/n/?] y
+Standalone shell (FEATURE_SH_STANDALONE) [N/y/?] n
+Run 'nofork' applets directly (FEATURE_SH_NOFORK) [N/y/?] n
+read -t N.NNN support (+110 bytes) (FEATURE_SH_READ_FRAC) [Y/n/?] y
+Use $HISTFILESIZE (FEATURE_SH_HISTFILESIZE) [N/y/?] n
+Embed scripts in the binary (FEATURE_SH_EMBEDDED_SCRIPTS) [Y/n/?] (NEW) *
+* System Logging Utilities
+*
+klogd (5.7 kb) (KLOGD) [Y/n/?] y
+  Use the klogctl() interface (FEATURE_KLOGD_KLOGCTL) [Y/n/?] y
+logger (6.3 kb) (LOGGER) [Y/n/?] y
+logread (4.8 kb) (LOGREAD) [N/y/?] n
+syslogd (13 kb) (SYSLOGD) [Y/n/?] y
+  Rotate message files (FEATURE_ROTATE_LOGFILE) [Y/n/?] y
+  Remote Log support (FEATURE_REMOTE_LOG) [Y/n/?] y
+  Support -D (drop dups) option (FEATURE_SYSLOGD_DUP) [N/y/?] n
+  Support syslog.conf (FEATURE_SYSLOGD_CFG) [N/y/?] n
+  Read buffer size in bytes (FEATURE_SYSLOGD_READ_BUFFER_SIZE) [256] 256
+  Circular Buffer support (FEATURE_IPC_SYSLOG) [N/y/?] n
+  Linux kernel printk buffer support (FEATURE_KMSG_SYSLOG) [N/y/?] n
+make[1]: Leaving directory '/home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1'
+/bin/sed -i -e "/\\<CONFIG_NOMMU\\>/d" /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config
+echo '# CONFIG_NOMMU is not set' >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config
+/bin/sed -i -e "/\\<CONFIG_USE_BB_CRYPT_SHA\\>/d" /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config
+echo 'CONFIG_USE_BB_CRYPT_SHA=y' >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config
+/bin/sed -i -e "/\\<CONFIG_PAM\\>/d" /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config
+echo '# CONFIG_PAM is not set' >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config
+/bin/sed -i -e "/\\<CONFIG_INIT\\>/d" /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config
+echo 'CONFIG_INIT=y' >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config
+make[1]: Entering directory '/home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1'
+scripts/kconfig/conf -o Config.in
+#
+# using defaults found in .config
+#
+*
+* Busybox Configuration
+*
+*
+* Settings
+*
+Enable compatibility for full-blown desktop systems (8kb) (DESKTOP) [Y/n/?] y
+Provide compatible behavior for rare corner cases (bigger code) (EXTRA_COMPAT) [N/y/?] n
+Building for Fedora distribution (FEDORA_COMPAT) [N/y/?] n
+Enable obsolete features removed before SUSv3 (INCLUDE_SUSv2) [Y/n/?] y
+Support --long-options (LONG_OPTS) [Y/?] y
+Show applet usage messages (SHOW_USAGE) [Y/n/?] y
+  Show verbose applet usage messages (FEATURE_VERBOSE_USAGE) [Y/n/?] y
+  Store applet usage messages in compressed form (FEATURE_COMPRESS_USAGE) [N/y/?] n
+Support files > 2 GB (LFS) [Y/n/?] y
+Support PAM (Pluggable Authentication Modules) (PAM) [N/y/?] n
+Use the devpts filesystem for Unix98 PTYs (FEATURE_DEVPTS) [Y/n/?] y
+Support utmp file (FEATURE_UTMP) [Y/n/?] y
+  Support wtmp file (FEATURE_WTMP) [Y/n/?] y
+Support writing pidfiles (FEATURE_PIDFILE) [N/y/?] n
+Include busybox applet (BUSYBOX) [Y/n/?] y
+  Support --show SCRIPT (FEATURE_SHOW_SCRIPT) [Y/n] y
+  Support --install [-s] to install applet links at runtime (FEATURE_INSTALLER) [Y/n/?] y
+Don't use /usr (INSTALL_NO_USR) [N/y/?] n
+Drop SUID state for most applets (FEATURE_SUID) [Y/n/?] y
+  Enable SUID configuration via /etc/busybox.conf (FEATURE_SUID_CONFIG) [N/y/?] n
+exec prefers applets (FEATURE_PREFER_APPLETS) [N/y/?] n
+Path to busybox executable (BUSYBOX_EXEC_PATH) [/proc/self/exe] /proc/self/exe
+Support NSA Security Enhanced Linux (SELINUX) [N/y/?] n
+Clean up all memory before exiting (usually not needed) (FEATURE_CLEAN_UP) [N/y/?] n
+Support LOG_INFO level syslog messages (FEATURE_SYSLOG_INFO) [Y/n/?] y
+*
+* Build Options
+*
+Build static binary (no shared libs) (STATIC) [N/y/?] n
+  Build position independent executable (PIE) [N/y/?] n
+Force NOMMU build (NOMMU) [N/y/?] n
+Build shared libbusybox (BUILD_LIBBUSYBOX) [N/y/?] n
+Cross compiler prefix (CROSS_COMPILER_PREFIX) [] 
+Path to sysroot (SYSROOT) [] 
+Additional CFLAGS (EXTRA_CFLAGS) [] 
+Additional LDFLAGS (EXTRA_LDFLAGS) [] 
+Additional LDLIBS (EXTRA_LDLIBS) [] 
+Avoid using GCC-specific code constructs (USE_PORTABLE_CODE) [N/y/?] n
+Use -mpreferred-stack-boundary=2 on i386 arch (STACK_OPTIMIZATION_386) [Y/n/?] y
+*
+* Installation Options ("make install" behavior)
+*
+What kind of applet links to install
+> 1. as soft-links (INSTALL_APPLET_SYMLINKS)
+  2. as hard-links (INSTALL_APPLET_HARDLINKS)
+  3. as script wrappers (INSTALL_APPLET_SCRIPT_WRAPPERS)
+  4. not installed (INSTALL_APPLET_DONT)
+choice[1-4?]: 1
+Destination path for 'make install' (PREFIX) [./_install] ./_install
+*
+* Debugging Options
+*
+Build with debug information (DEBUG) [N/y/?] n
+Enable runtime sanitizers (ASAN/LSAN/USAN/etc...) (DEBUG_SANITIZE) [N/y/?] n
+Build unit tests (UNIT_TEST) [N/y/?] n
+Abort compilation on any warning (WERROR) [N/y/?] n
+Additional debugging library
+> 1. None (NO_DEBUG_LIB)
+  2. Dmalloc (DMALLOC)
+  3. Electric-fence (EFENCE)
+choice[1-3?]: 1
+*
+* Library Tuning
+*
+Use the end of BSS page (FEATURE_USE_BSS_TAIL) [N/y/?] n
+Enable fractional duration arguments (FLOAT_DURATION) [Y/n/?] y
+Support RTMIN[+n] and RTMAX[-n] signal names (FEATURE_RTMINMAX) [Y/n/?] y
+  Use the definitions of SIGRTMIN/SIGRTMAX provided by libc (FEATURE_RTMINMAX_USE_LIBC_DEFINITIONS) [Y/n/?] y
+Buffer allocation policy
+> 1. Allocate with Malloc (FEATURE_BUFFERS_USE_MALLOC)
+  2. Allocate on the Stack (FEATURE_BUFFERS_GO_ON_STACK)
+  3. Allocate in the .bss section (FEATURE_BUFFERS_GO_IN_BSS)
+choice[1-3?]: 1
+Minimum password length (PASSWORD_MINLEN) [6] 6
+MD5: Trade bytes for speed (0:fast, 3:slow) (MD5_SMALL) [1] 1
+SHA3: Trade bytes for speed (0:fast, 1:slow) (SHA3_SMALL) [1] 1
+Faster /proc scanning code (+100 bytes) (FEATURE_FAST_TOP) [N/y/?] n
+Support /etc/networks (FEATURE_ETC_NETWORKS) [N/y/?] n
+Consult /etc/services even for well-known ports (FEATURE_ETC_SERVICES) [N/y/?] n
+Command line editing (FEATURE_EDITING) [Y/n/?] y
+  Maximum length of input (FEATURE_EDITING_MAX_LEN) [1024] 1024
+  vi-style line editing commands (FEATURE_EDITING_VI) [Y/n/?] y
+  History size (FEATURE_EDITING_HISTORY) [999] 999
+  History saving (FEATURE_EDITING_SAVEHISTORY) [Y/n/?] y
+    Save history on shell exit, not after every command (FEATURE_EDITING_SAVE_ON_EXIT) [N/y/?] n
+  Reverse history search (FEATURE_REVERSE_SEARCH) [Y/n/?] y
+  Tab completion (FEATURE_TAB_COMPLETION) [Y/n] y
+    Username completion (FEATURE_USERNAME_COMPLETION) [N/y] n
+  Fancy shell prompts (FEATURE_EDITING_FANCY_PROMPT) [Y/n/?] y
+  Enable automatic tracking of window size changes (FEATURE_EDITING_WINCH) [Y/n] y
+  Query cursor position from terminal (FEATURE_EDITING_ASK_TERMINAL) [N/y/?] n
+Enable locale support (system needs locale for this to work) (LOCALE_SUPPORT) [N/y/?] n
+Support Unicode (UNICODE_SUPPORT) [N/y/?] n
+Non-POSIX, but safer, copying to special nodes (FEATURE_NON_POSIX_CP) [Y/n/?] y
+Give more precise messages when copy fails (cp, mv etc) (FEATURE_VERBOSE_CP_MESSAGE) [N/y/?] n
+Use sendfile system call (FEATURE_USE_SENDFILE) [Y/n/?] y
+Copy buffer size, in kilobytes (FEATURE_COPYBUF_KB) [4] 4
+Skip rootfs in mount table (FEATURE_SKIP_ROOTFS) [Y/n/?] y
+Use clock_gettime(CLOCK_MONOTONIC) syscall (MONOTONIC_SYSCALL) [Y/n/?] y
+Use ioctl names rather than hex values in error messages (IOCTL_HEX2STR_ERROR) [Y/n/?] y
+Support infiniband HW (FEATURE_HWIB) [Y/n/?] y
+*
+* Applets
+*
+*
+* Archival Utilities
+*
+Make tar, rpm, modprobe etc understand .xz data (FEATURE_SEAMLESS_XZ) [N/y] n
+Make tar, rpm, modprobe etc understand .lzma data (FEATURE_SEAMLESS_LZMA) [N/y] n
+Make tar, rpm, modprobe etc understand .bz2 data (FEATURE_SEAMLESS_BZ2) [N/y] n
+Make tar, rpm, modprobe etc understand .gz data (FEATURE_SEAMLESS_GZ) [N/y] n
+Make tar, rpm, modprobe etc understand .Z data (FEATURE_SEAMLESS_Z) [N/y] n
+ar (9.5 kb) (AR) [Y/n/?] y
+  Support long filenames (not needed for debs) (FEATURE_AR_LONG_FILENAMES) [N/y/?] n
+  Support archive creation (FEATURE_AR_CREATE) [Y/n/?] y
+uncompress (7.1 kb) (UNCOMPRESS) [N/y/?] n
+gunzip (11 kb) (GUNZIP) [Y/n/?] y
+zcat (24 kb) (ZCAT) [Y/n/?] y
+  Enable long options (FEATURE_GUNZIP_LONG_OPTIONS) [Y/n] y
+bunzip2 (8.7 kb) (BUNZIP2) [Y/n/?] y
+bzcat (8.7 kb) (BZCAT) [Y/n/?] y
+unlzma (7.5 kb) (UNLZMA) [Y/n/?] y
+lzcat (7.5 kb) (LZCAT) [Y/n/?] y
+lzma -d (LZMA) [Y/n/?] y
+unxz (13 kb) (UNXZ) [Y/n/?] y
+xzcat (13 kb) (XZCAT) [Y/n/?] y
+xz -d (XZ) [Y/n/?] y
+bzip2 (16 kb) (BZIP2) [N/y/?] n
+  Enable decompression (FEATURE_BZIP2_DECOMPRESS) [Y/?] y
+cpio (15 kb) (CPIO) [Y/n/?] y
+  Support archive creation (FEATURE_CPIO_O) [N/y/?] n
+dpkg (43 kb) (DPKG) [N/y/?] n
+dpkg-deb (30 kb) (DPKG_DEB) [N/y/?] n
+gzip (17 kb) (GZIP) [Y/n/?] y
+  Enable long options (FEATURE_GZIP_LONG_OPTIONS) [N/y] n
+  Trade memory for speed (0:small,slow - 2:fast,big) (GZIP_FAST) [0] 0
+  Enable compression levels (FEATURE_GZIP_LEVELS) [N/y/?] n
+  Enable decompression (FEATURE_GZIP_DECOMPRESS) [Y/?] y
+lzop (12 kb) (LZOP) [N/y/?] n
+unlzop (13 kb) (UNLZOP) [Y/n/?] y
+lzopcat (13 kb) (LZOPCAT) [Y/n/?] y
+  lzop compression levels 7,8,9 (not very useful) (LZOP_COMPR_HIGH) [N/y/?] n
+rpm (32 kb) (RPM) [N/y/?] n
+rpm2cpio (21 kb) (RPM2CPIO) [N/y/?] n
+tar (39 kb) (TAR) [Y/n/?] y
+  Enable long options (FEATURE_TAR_LONG_OPTIONS) [Y/n] y
+  Enable -c (archive creation) (FEATURE_TAR_CREATE) [Y/n] y
+  Enable -X (exclude from) and -T (include from) options (FEATURE_TAR_FROM) [Y/n/?] y
+  Support old tar header format (FEATURE_TAR_OLDGNU_COMPATIBILITY) [N/y/?] n
+  Enable untarring of tarballs with checksums produced by buggy Sun tar (FEATURE_TAR_OLDSUN_COMPATIBILITY) [N/y/?] n
+  Support GNU tar extensions (long filenames) (FEATURE_TAR_GNU_EXTENSIONS) [Y/n] y
+  Support writing to an external program (--to-command) (FEATURE_TAR_TO_COMMAND) [Y/n/?] y
+  Enable use of user and group names (FEATURE_TAR_UNAME_GNAME) [N/y/?] n
+  Enable -m (do not preserve time) GNU option (FEATURE_TAR_NOPRESERVE_TIME) [N/y] n
+unzip (26 kb) (UNZIP) [Y/n/?] y
+  Read and use Central Directory data (FEATURE_UNZIP_CDF) [Y/n/?] y
+    Support compression method 12 (bzip2) (FEATURE_UNZIP_BZIP2) [Y/n] y
+    Support compression method 14 (lzma) (FEATURE_UNZIP_LZMA) [Y/n] y
+    Support compression method 95 (xz) (FEATURE_UNZIP_XZ) [Y/n] y
+Optimize lzma for speed (FEATURE_LZMA_FAST) [N/y/?] n
+*
+* Coreutils
+*
+basename (438 bytes) (BASENAME) [Y/n/?] y
+cat (5.6 kb) (CAT) [Y/?] y
+  Enable -n and -b options (FEATURE_CATN) [Y/n/?] y
+  cat -v[etA] (FEATURE_CATV) [Y/n/?] y
+chgrp (7.6 kb) (CHGRP) [Y/n/?] y
+chmod (5.5 kb) (CHMOD) [Y/n/?] y
+chown (7.6 kb) (CHOWN) [Y/n/?] y
+  Enable long options (FEATURE_CHOWN_LONG_OPTIONS) [N/y] n
+chroot (3.7 kb) (CHROOT) [Y/n/?] y
+cksum (4.1 kb) (CKSUM) [Y/n/?] y
+comm (4.2 kb) (COMM) [N/y/?] n
+cp (10 kb) (CP) [Y/n/?] y
+  Enable long options (FEATURE_CP_LONG_OPTIONS) [N/y/?] n
+cut (5.8 kb) (CUT) [Y/n/?] y
+date (7 kb) (DATE) [Y/n/?] y
+  Enable ISO date format output (-I) (FEATURE_DATE_ISOFMT) [Y/n/?] y
+  Support %[num]N nanosecond format specifier (FEATURE_DATE_NANO) [N/y/?] n
+  Support weird 'date MMDDhhmm[[YY]YY][.ss]' format (FEATURE_DATE_COMPAT) [Y/n/?] y
+dd (7.5 kb) (DD) [Y/n/?] y
+  Enable signal handling for status reporting (FEATURE_DD_SIGNAL_HANDLING) [Y/n/?] y
+    Enable the third status line upon signal (FEATURE_DD_THIRD_STATUS_LINE) [N/y/?] n
+  Enable ibs, obs, iflag, oflag and conv options (FEATURE_DD_IBS_OBS) [Y/n/?] y
+  Enable status display options (FEATURE_DD_STATUS) [Y/n/?] y
+df (6.8 kb) (DF) [Y/n/?] y
+  Enable -a, -i, -B (FEATURE_DF_FANCY) [N/y/?] n
+dirname (329 bytes) (DIRNAME) [Y/n/?] y
+dos2unix (5.2 kb) (DOS2UNIX) [Y/n/?] y
+unix2dos (5.2 kb) (UNIX2DOS) [Y/n/?] y
+du (6.3 kb) (DU) [Y/n/?] y
+  Use default blocksize of 1024 bytes (else it's 512 bytes) (FEATURE_DU_DEFAULT_BLOCKSIZE_1K) [Y/n] y
+echo (1.8 kb) (ECHO) [Y/?] y
+  Enable -n and -e options (FEATURE_FANCY_ECHO) [Y/n] y
+env (4 kb) (ENV) [Y/n/?] y
+expand (5.1 kb) (EXPAND) [N/y/?] n
+unexpand (5.3 kb) (UNEXPAND) [N/y/?] n
+expr (6.6 kb) (EXPR) [Y/n/?] y
+  Extend Posix numbers support to 64 bit (EXPR_MATH_SUPPORT_64) [Y/n/?] y
+factor (2.7 kb) (FACTOR) [Y/n/?] y
+false (tiny) (FALSE) [Y/n/?] y
+fold (4.6 kb) (FOLD) [Y/n/?] y
+head (3.8 kb) (HEAD) [Y/n/?] y
+  Enable -c, -q, and -v (FEATURE_FANCY_HEAD) [Y/n] y
+hostid (286 bytes) (HOSTID) [Y/n/?] y
+id (7 kb) (ID) [Y/n/?] y
+groups (6.7 kb) (GROUPS) [N/y/?] n
+install (12 kb) (INSTALL) [Y/n/?] y
+  Enable long options (FEATURE_INSTALL_LONG_OPTIONS) [Y/n] y
+link (3.2 kb) (LINK) [Y/n/?] y
+ln (4.9 kb) (LN) [Y/n/?] y
+logname (1.1 kb) (LOGNAME) [Y/n/?] y
+ls (14 kb) (LS) [Y/n/?] y
+  Enable filetyping options (-p and -F) (FEATURE_LS_FILETYPES) [Y/n] y
+  Enable symlinks dereferencing (-L) (FEATURE_LS_FOLLOWLINKS) [Y/n] y
+  Enable recursion (-R) (FEATURE_LS_RECURSIVE) [Y/n] y
+  Enable -w WIDTH and window size autodetection (FEATURE_LS_WIDTH) [Y/n] y
+  Sort the file names (FEATURE_LS_SORTFILES) [Y/n/?] y
+  Show file timestamps (FEATURE_LS_TIMESTAMPS) [Y/n/?] y
+  Show username/groupnames (FEATURE_LS_USERNAME) [Y/n/?] y
+  Allow use of color to identify file types (FEATURE_LS_COLOR) [Y/n/?] y
+    Produce colored ls output by default (FEATURE_LS_COLOR_IS_DEFAULT) [Y/n/?] y
+md5sum (6.5 kb) (MD5SUM) [Y/n/?] y
+sha1sum (5.9 kb) (SHA1SUM) [Y/n/?] y
+sha256sum (7 kb) (SHA256SUM) [Y/n/?] y
+sha512sum (7.4 kb) (SHA512SUM) [Y/n/?] y
+sha3sum (6.1 kb) (SHA3SUM) [Y/n/?] y
+  *
+  * Common options for md5sum, sha1sum, sha256sum, sha512sum, sha3sum
+  *
+  Enable -c, -s and -w options (FEATURE_MD5_SHA1_SUM_CHECK) [Y/n/?] y
+mkdir (4.5 kb) (MKDIR) [Y/n/?] y
+mkfifo (3.8 kb) (MKFIFO) [Y/n/?] y
+mknod (4.5 kb) (MKNOD) [Y/n/?] y
+mktemp (4.2 kb) (MKTEMP) [Y/n/?] y
+mv (10 kb) (MV) [Y/n/?] y
+nice (2.1 kb) (NICE) [Y/n/?] y
+nl (4.6 kb) (NL) [Y/n/?] y
+nohup (2 kb) (NOHUP) [Y/n/?] y
+nproc (3.7 kb) (NPROC) [Y/n/?] y
+od (11 kb) (OD) [Y/n/?] y
+paste (4.9 kb) (PASTE) [Y/n/?] y
+printenv (1.3 kb) (PRINTENV) [Y/n/?] y
+printf (3.8 kb) (PRINTF) [Y/n/?] y
+pwd (3.7 kb) (PWD) [Y/n/?] y
+readlink (4 kb) (READLINK) [Y/n/?] y
+  Enable canonicalization by following all symlinks (-f) (FEATURE_READLINK_FOLLOW) [Y/n/?] y
+realpath (1.6 kb) (REALPATH) [Y/n/?] y
+rm (5.4 kb) (RM) [Y/n/?] y
+rmdir (3.5 kb) (RMDIR) [Y/n/?] y
+seq (3.8 kb) (SEQ) [Y/n/?] y
+shred (4.9 kb) (SHRED) [Y/n/?] y
+shuf (5.4 kb) (SHUF) [N/y/?] n
+sleep (2 kb) (SLEEP) [Y/?] y
+  Enable multiple arguments and s/m/h/d suffixes (FEATURE_FANCY_SLEEP) [Y/n/?] y
+sort (7.7 kb) (SORT) [Y/n/?] y
+  Full SuSv3 compliant sort (support -ktcbdfiogM) (FEATURE_SORT_BIG) [Y/n/?] y
+  Use less memory (but might be slower) (FEATURE_SORT_OPTIMIZE_MEMORY) [N/y/?] n
+split (5 kb) (SPLIT) [N/y/?] n
+stat (11 kb) (STAT) [N/y/?] n
+stty (8.9 kb) (STTY) [Y/n/?] y
+sum (4 kb) (SUM) [N/y/?] n
+sync (3.8 kb) (SYNC) [Y/n/?] y
+  Enable -d and -f flags (requires syncfs(2) in libc) (FEATURE_SYNC_FANCY) [N/y/?] n
+fsync (3.6 kb) (FSYNC) [N/y/?] n
+tac (3.9 kb) (TAC) [N/y/?] n
+tail (6.8 kb) (TAIL) [Y/n/?] y
+  Enable -q, -s, -v, and -F options (FEATURE_FANCY_TAIL) [Y/n/?] y
+tee (4.2 kb) (TEE) [Y/n/?] y
+  Enable block I/O (larger/faster) instead of byte I/O (FEATURE_TEE_USE_BLOCK_IO) [Y/n/?] y
+test (4.1 kb) (TEST) [Y/n/?] y
+test as [ (TEST1) [Y/n/?] y
+test as [[ (TEST2) [Y/n/?] y
+  Extend test to 64 bit (FEATURE_TEST_64) [Y/n/?] y
+timeout (6 kb) (TIMEOUT) [N/y/?] n
+touch (5.9 kb) (TOUCH) [Y/n/?] y
+  Add support for -h (FEATURE_TOUCH_NODEREF) [N/y/?] n
+  Add support for SUSV3 features (-d -t -r) (FEATURE_TOUCH_SUSV3) [Y/n/?] y
+tr (5.1 kb) (TR) [Y/n/?] y
+  Enable character classes (such as [:upper:]) (FEATURE_TR_CLASSES) [Y/n/?] y
+  Enable equivalence classes (FEATURE_TR_EQUIV) [Y/n/?] y
+true (tiny) (TRUE) [Y/n/?] y
+truncate (4.2 kb) (TRUNCATE) [Y/n/?] y
+tty (3.6 kb) (TTY) [Y/n/?] y
+uname (3.9 kb) (UNAME) [Y/n/?] y
+  Operating system name (UNAME_OSNAME) [GNU/Linux] GNU/Linux
+arch (1.1 kb) (BB_ARCH) [Y/n/?] y
+uniq (4.9 kb) (UNIQ) [Y/n/?] y
+unlink (3.2 kb) (UNLINK) [Y/n/?] y
+usleep (1.3 kb) (USLEEP) [Y/n/?] y
+uudecode (5.8 kb) (UUDECODE) [Y/n/?] y
+base64 (4.9 kb) (BASE64) [Y/n/?] y
+uuencode (4.4 kb) (UUENCODE) [Y/n/?] y
+wc (4.5 kb) (WC) [Y/n/?] y
+  Support very large counts (FEATURE_WC_LARGE) [N/y/?] n
+who (3.9 kb) (WHO) [Y/n/?] y
+w (3.8 kb) (W) [Y/n/?] y
+users (3.4 kb) (USERS) [N/y/?] n
+whoami (3.2 kb) (WHOAMI) [Y/n/?] y
+yes (1.2 kb) (YES) [Y/n/?] y
+*
+* Common options
+*
+Support verbose options (usually -v) for various applets (FEATURE_VERBOSE) [Y/n/?] y
+*
+* Common options for cp and mv
+*
+Preserve hard links (FEATURE_PRESERVE_HARDLINKS) [Y/n/?] y
+*
+* Common options for df, du, ls
+*
+Support human readable output (example 13k, 23M, 235G) (FEATURE_HUMAN_READABLE) [Y/n/?] y
+*
+* Console Utilities
+*
+chvt (2 kb) (CHVT) [Y/n/?] y
+clear (tiny) (CLEAR) [Y/n/?] y
+deallocvt (1.9 kb) (DEALLOCVT) [Y/n/?] y
+dumpkmap (1.6 kb) (DUMPKMAP) [Y/n/?] y
+fgconsole (1.5 kb) (FGCONSOLE) [N/y/?] n
+kbd_mode (4.1 kb) (KBD_MODE) [N/y/?] n
+loadfont (5.2 kb) (LOADFONT) [Y/n/?] y
+setfont (24 kb) (SETFONT) [N/y/?] n
+  *
+  * Common options for loadfont and setfont
+  *
+  Support PSF2 console fonts (FEATURE_LOADFONT_PSF2) [Y/n] y
+  Support old (raw) console fonts (FEATURE_LOADFONT_RAW) [Y/n] y
+loadkmap (1.8 kb) (LOADKMAP) [Y/n/?] y
+openvt (7.2 kb) (OPENVT) [Y/n/?] y
+reset (345 bytes) (RESET) [Y/n/?] y
+resize (903 bytes) (RESIZE) [Y/n/?] y
+  Print environment variables (FEATURE_RESIZE_PRINT) [Y/n/?] y
+setconsole (3.6 kb) (SETCONSOLE) [Y/n/?] y
+  Enable long options (FEATURE_SETCONSOLE_LONG_OPTIONS) [N/y] n
+setkeycodes (2.1 kb) (SETKEYCODES) [Y/n/?] y
+setlogcons (1.8 kb) (SETLOGCONS) [Y/n/?] y
+showkey (4.7 kb) (SHOWKEY) [N/y/?] n
+*
+* Debian Utilities
+*
+pipe_progress (275 bytes) (PIPE_PROGRESS) [Y/n/?] y
+run-parts (6.1 kb) (RUN_PARTS) [Y/n/?] y
+  Enable long options (FEATURE_RUN_PARTS_LONG_OPTIONS) [Y/n] y
+  Support additional arguments (FEATURE_RUN_PARTS_FANCY) [N/y/?] n
+start-stop-daemon (12 kb) (START_STOP_DAEMON) [Y/n/?] y
+  Enable long options (FEATURE_START_STOP_DAEMON_LONG_OPTIONS) [Y/n] y
+  Support additional arguments (FEATURE_START_STOP_DAEMON_FANCY) [Y/n/?] y
+which (3.8 kb) (WHICH) [Y/n/?] y
+*
+* klibc-utils
+*
+minips (11 kb) (MINIPS) [N/y/?] n
+nuke (2.9 kb) (NUKE) [Y/n/?] y
+resume (3.2 kb) (RESUME) [Y/n/?] y
+run-init (7.7 kb) (RUN_INIT) [Y/n/?] y
+*
+* Editors
+*
+awk (23 kb) (AWK) [Y/n/?] y
+  Enable math functions (requires libm) (FEATURE_AWK_LIBM) [N/y/?] n
+  Enable a few GNU extensions (FEATURE_AWK_GNU_EXTENSIONS) [Y/n/?] y
+cmp (4.9 kb) (CMP) [Y/n/?] y
+diff (13 kb) (DIFF) [Y/n/?] y
+  Enable long options (FEATURE_DIFF_LONG_OPTIONS) [N/y] n
+  Enable directory support (FEATURE_DIFF_DIR) [Y/n/?] y
+ed (21 kb) (ED) [N/y/?] n
+patch (9.4 kb) (PATCH) [Y/n/?] y
+sed (12 kb) (SED) [Y/n/?] y
+vi (23 kb) (VI) [Y/n/?] y
+  Maximum screen width (FEATURE_VI_MAX_LEN) [4096] 4096
+  Allow to display 8-bit chars (otherwise shows dots) (FEATURE_VI_8BIT) [Y/n/?] y
+  Enable ":" colon commands (no "ex" mode) (FEATURE_VI_COLON) [Y/n/?] y
+  Enable yank/put commands and mark cmds (FEATURE_VI_YANKMARK) [Y/n/?] y
+  Enable search and replace cmds (FEATURE_VI_SEARCH) [Y/n/?] y
+    Enable regex in search and replace (FEATURE_VI_REGEX_SEARCH) [N/y/?] n
+  Catch signals (FEATURE_VI_USE_SIGNALS) [Y/n/?] y
+  Remember previous cmd and "." cmd (FEATURE_VI_DOT_CMD) [Y/n/?] y
+  Enable -R option and "view" mode (FEATURE_VI_READONLY) [Y/n/?] y
+  Enable settable options, ai ic showmatch (FEATURE_VI_SETOPTS) [Y/n/?] y
+  Support :set (FEATURE_VI_SET) [Y/n] y
+  Handle window resize (FEATURE_VI_WIN_RESIZE) [Y/n/?] y
+  Use 'tell me cursor position' ESC sequence to measure window (FEATURE_VI_ASK_TERMINAL) [Y/n/?] y
+  Support undo command "u" (FEATURE_VI_UNDO) [Y/n/?] y
+    Enable undo operation queuing (FEATURE_VI_UNDO_QUEUE) [Y/n/?] y
+      Maximum undo character queue size (FEATURE_VI_UNDO_QUEUE_MAX) [256] 256
+  Allow vi and awk to execute shell commands (FEATURE_ALLOW_EXEC) [Y/n/?] y
+*
+* Finding Utilities
+*
+find (14 kb) (FIND) [Y/n/?] y
+  Enable -print0: NUL-terminated output (FEATURE_FIND_PRINT0) [Y/n/?] y
+  Enable -mtime: modified time matching (FEATURE_FIND_MTIME) [Y/n/?] y
+  Enable -mmin: modified time matching by minutes (FEATURE_FIND_MMIN) [Y/n/?] y
+  Enable -perm: permissions matching (FEATURE_FIND_PERM) [Y/n] y
+  Enable -type: file type matching (file/dir/link/...) (FEATURE_FIND_TYPE) [Y/n/?] y
+  Enable -executable: file is executable (FEATURE_FIND_EXECUTABLE) [Y/n] y
+  Enable -xdev: 'stay in filesystem' (FEATURE_FIND_XDEV) [Y/n] y
+  Enable -mindepth N and -maxdepth N (FEATURE_FIND_MAXDEPTH) [Y/n] y
+  Enable -newer: compare file modification times (FEATURE_FIND_NEWER) [Y/n/?] y
+  Enable -inum: inode number matching (FEATURE_FIND_INUM) [N/y] n
+  Enable -exec: execute commands (FEATURE_FIND_EXEC) [Y/n/?] y
+    Enable -exec ... {} + (FEATURE_FIND_EXEC_PLUS) [Y/n/?] y
+  Enable -user: username/uid matching (FEATURE_FIND_USER) [Y/n] y
+  Enable -group: group/gid matching (FEATURE_FIND_GROUP) [Y/n] y
+  Enable the 'not' (!) operator (FEATURE_FIND_NOT) [Y/n/?] y
+  Enable -depth (FEATURE_FIND_DEPTH) [Y/n/?] y
+  Enable parens in options (FEATURE_FIND_PAREN) [Y/n/?] y
+  Enable -size: file size matching (FEATURE_FIND_SIZE) [Y/n] y
+  Enable -prune: exclude subdirectories (FEATURE_FIND_PRUNE) [Y/n/?] y
+  Enable -quit: exit (FEATURE_FIND_QUIT) [Y/n/?] y
+  Enable -delete: delete files/dirs (FEATURE_FIND_DELETE) [N/y/?] n
+  Enable -path: match pathname with shell pattern (FEATURE_FIND_PATH) [Y/n/?] y
+  Enable -regex: match pathname with regex (FEATURE_FIND_REGEX) [Y/n/?] y
+  Enable -links: link count matching (FEATURE_FIND_LINKS) [N/y/?] n
+grep (8.6 kb) (GREP) [Y/n/?] y
+egrep (7.8 kb) (EGREP) [Y/n/?] y
+fgrep (7.8 kb) (FGREP) [Y/n/?] y
+  Enable before and after context flags (-A, -B and -C) (FEATURE_GREP_CONTEXT) [Y/n/?] y
+xargs (7.2 kb) (XARGS) [Y/n/?] y
+  Enable -p: prompt and confirmation (FEATURE_XARGS_SUPPORT_CONFIRMATION) [N/y/?] n
+  Enable single and double quotes and backslash (FEATURE_XARGS_SUPPORT_QUOTES) [Y/n/?] y
+  Enable -x: exit if -s or -n is exceeded (FEATURE_XARGS_SUPPORT_TERMOPT) [Y/n/?] y
+  Enable -0: NUL-terminated input (FEATURE_XARGS_SUPPORT_ZERO_TERM) [Y/n/?] y
+  Enable -I STR: string to replace (FEATURE_XARGS_SUPPORT_REPL_STR) [Y/n/?] y
+  Enable -P N: processes to run in parallel (FEATURE_XARGS_SUPPORT_PARALLEL) [Y/n] y
+  Enable -a FILE: use FILE instead of stdin (FEATURE_XARGS_SUPPORT_ARGS_FILE) [Y/n] y
+*
+* Init Utilities
+*
+bootchartd (10 kb) (BOOTCHARTD) [N/y/?] n
+halt (4 kb) (HALT) [Y/n/?] y
+poweroff (4 kb) (POWEROFF) [Y/n/?] y
+reboot (4 kb) (REBOOT) [Y/n/?] y
+  Before signaling init, make sure it is ready for it (FEATURE_WAIT_FOR_INIT) [Y/n/?] y
+init (10 kb) (INIT) [Y/n/?] y
+linuxrc: support running init from initrd (not initramfs) (LINUXRC) [Y/n/?] y
+  Support reading an inittab file (FEATURE_USE_INITTAB) [Y/n/?] y
+    Support killing processes that have been removed from inittab (FEATURE_KILL_REMOVED) [Y/n/?] y
+      How long to wait between TERM and KILL (0 - send TERM only) (FEATURE_KILL_DELAY) [0] 0
+  Run commands with leading dash with controlling tty (FEATURE_INIT_SCTTY) [Y/n/?] y
+  Enable init to write to syslog (FEATURE_INIT_SYSLOG) [Y/n/?] y
+  Be quiet on boot (no 'init started:' message) (FEATURE_INIT_QUIET) [Y/n] y
+  Support dumping core for child processes (debugging only) (FEATURE_INIT_COREDUMPS) [N/y/?] n
+  Initial terminal type (INIT_TERMINAL_TYPE) [linux] linux
+  Clear init's command line (FEATURE_INIT_MODIFY_CMDLINE) [Y/n/?] y
+*
+* Login/Password Management Utilities
+*
+Support shadow passwords (FEATURE_SHADOWPASSWDS) [Y/n/?] y
+Use internal password and group functions rather than system functions (USE_BB_PWD_GRP) [N/y/?] n
+Use internal crypt functions (USE_BB_CRYPT) [Y/n/?] y
+  Enable SHA256/512 crypt functions (USE_BB_CRYPT_SHA) [Y/n/?] y
+add-shell (3.1 kb) (ADD_SHELL) [N/y/?] n
+remove-shell (3 kb) (REMOVE_SHELL) [N/y/?] n
+addgroup (8.6 kb) (ADDGROUP) [Y/n/?] y
+  Support adding users to groups (FEATURE_ADDUSER_TO_GROUP) [N/y/?] n
+adduser (15 kb) (ADDUSER) [Y/n/?] y
+  Enable sanity check on user/group names in adduser and addgroup (FEATURE_CHECK_NAMES) [N/y/?] n
+  Last valid uid or gid for adduser and addgroup (LAST_ID) [60000] 60000
+  First valid system uid or gid for adduser and addgroup (FIRST_SYSTEM_ID) [100] 100
+  Last valid system uid or gid for adduser and addgroup (LAST_SYSTEM_ID) [999] 999
+chpasswd (18 kb) (CHPASSWD) [N/y/?] n
+  Default encryption method (passwd -a, cryptpw -m, chpasswd -c ALG) (FEATURE_DEFAULT_PASSWD_ALGO) [md5] md5
+cryptpw (14 kb) (CRYPTPW) [N/y/?] n
+mkpasswd (15 kb) (MKPASSWD) [Y/n/?] y
+deluser (9.1 kb) (DELUSER) [Y/n/?] y
+delgroup (6.4 kb) (DELGROUP) [Y/n/?] y
+  Support removing users from groups (FEATURE_DEL_USER_FROM_GROUP) [N/y/?] n
+getty (10 kb) (GETTY) [Y/n/?] y
+login (24 kb) (LOGIN) [Y/n/?] y
+  Run logged in session in a child process (LOGIN_SESSION_AS_CHILD) [N/y/?] n
+  Support login scripts (LOGIN_SCRIPTS) [N/y/?] n
+  Support /etc/nologin (FEATURE_NOLOGIN) [Y/n/?] y
+  Support /etc/securetty (FEATURE_SECURETTY) [Y/n/?] y
+passwd (21 kb) (PASSWD) [Y/n/?] y
+  Check new passwords for weakness (FEATURE_PASSWD_WEAK_CHECK) [Y/n/?] y
+su (19 kb) (SU) [Y/n/?] y
+  Log to syslog all attempts to use su (FEATURE_SU_SYSLOG) [Y/n] y
+  If user's shell is not in /etc/shells, disallow -s PROG (FEATURE_SU_CHECKS_SHELLS) [Y/n] y
+  Allow blank passwords only on TTYs in /etc/securetty (FEATURE_SU_BLANK_PW_NEEDS_SECURE_TTY) [N/y] n
+sulogin (17 kb) (SULOGIN) [Y/n/?] y
+vlock (17 kb) (VLOCK) [Y/n/?] y
+*
+* Linux Ext2 FS Progs
+*
+chattr (3.8 kb) (CHATTR) [Y/n/?] y
+fsck (7.4 kb) (FSCK) [Y/n/?] y
+lsattr (5.5 kb) (LSATTR) [Y/n/?] y
+tune2fs (4.4 kb) (TUNE2FS) [N/y/?] n
+*
+* Linux Module Utilities
+*
+Simplified modutils (MODPROBE_SMALL) [N/y/?] n
+depmod (27 kb) (DEPMOD) [N/y/?] n
+insmod (22 kb) (INSMOD) [Y/n/?] y
+lsmod (1.9 kb) (LSMOD) [Y/n/?] y
+  Pretty output (FEATURE_LSMOD_PRETTY_2_6_OUTPUT) [Y/n/?] y
+modinfo (24 kb) (MODINFO) [N/y/?] n
+modprobe (28 kb) (MODPROBE) [Y/n/?] y
+  Blacklist support (FEATURE_MODPROBE_BLACKLIST) [N/y/?] n
+rmmod (3.3 kb) (RMMOD) [Y/n/?] y
+*
+* Options common to multiple modutils
+*
+Accept module options on modprobe command line (FEATURE_CMDLINE_MODULE_OPTIONS) [Y/n/?] y
+Support version 2.2/2.4 Linux kernels (FEATURE_2_4_MODULES) [N/y/?] n
+Support tainted module checking with new kernels (FEATURE_CHECK_TAINTED_MODULE) [Y/n/?] y
+Try to load module from a mmap'ed area (FEATURE_INSMOD_TRY_MMAP) [N/y/?] n
+Support module.aliases file (FEATURE_MODUTILS_ALIAS) [Y/n/?] y
+Support module.symbols file (FEATURE_MODUTILS_SYMBOLS) [Y/n/?] y
+Default directory containing modules (DEFAULT_MODULES_DIR) [/lib/modules] /lib/modules
+Default name of modules.dep (DEFAULT_DEPMOD_FILE) [modules.dep] modules.dep
+*
+* Linux System Utilities
+*
+acpid (9 kb) (ACPID) [N/y/?] n
+blkdiscard (4.3 kb) (BLKDISCARD) [N/y/?] n
+blkid (12 kb) (BLKID) [Y/n/?] y
+  Print filesystem type (FEATURE_BLKID_TYPE) [N/y/?] n
+blockdev (2.3 kb) (BLOCKDEV) [N/y/?] n
+cal (5.8 kb) (CAL) [N/y/?] n
+chrt (4.7 kb) (CHRT) [Y/n/?] y
+dmesg (3.7 kb) (DMESG) [Y/n/?] y
+  Pretty output (FEATURE_DMESG_PRETTY) [Y/n/?] y
+eject (4 kb) (EJECT) [Y/n/?] y
+  SCSI support (FEATURE_EJECT_SCSI) [N/y/?] n
+fallocate (4.1 kb) (FALLOCATE) [Y/n/?] y
+fatattr (1.9 kb) (FATATTR) [N/y/?] n
+fbset (5.9 kb) (FBSET) [Y/n/?] y
+  Enable extra options (FEATURE_FBSET_FANCY) [Y/n/?] y
+  Enable readmode support (FEATURE_FBSET_READMODE) [Y/n/?] y
+fdformat (4.4 kb) (FDFORMAT) [Y/n/?] y
+fdisk (37 kb) (FDISK) [Y/n/?] y
+  Write support (FEATURE_FDISK_WRITABLE) [Y/n/?] y
+    Support AIX disklabels (FEATURE_AIX_LABEL) [N/y/?] n
+    Support SGI disklabels (FEATURE_SGI_LABEL) [N/y/?] n
+    Support SUN disklabels (FEATURE_SUN_LABEL) [N/y/?] n
+    Support BSD disklabels (FEATURE_OSF_LABEL) [N/y/?] n
+    Support GPT disklabels (FEATURE_GPT_LABEL) [Y/n/?] y
+    Support expert mode (FEATURE_FDISK_ADVANCED) [Y/n/?] y
+findfs (12 kb) (FINDFS) [N/y/?] n
+flock (6.3 kb) (FLOCK) [Y/n/?] y
+fdflush (1.3 kb) (FDFLUSH) [Y/n/?] y
+freeramdisk (1.3 kb) (FREERAMDISK) [Y/n/?] y
+fsck.minix (13 kb) (FSCK_MINIX) [N/y/?] n
+fsfreeze (3.5 kb) (FSFREEZE) [Y/n/?] y
+fstrim (4.4 kb) (FSTRIM) [Y/n/?] y
+getopt (5.8 kb) (GETOPT) [Y/n/?] y
+  Support -l LONGOPTs (FEATURE_GETOPT_LONG) [Y/n/?] y
+hexdump (8.6 kb) (HEXDUMP) [Y/n/?] y
+  Support -R, reverse of 'hexdump -Cv' (FEATURE_HEXDUMP_REVERSE) [N/y/?] n
+hd (7.8 kb) (HD) [N/y/?] n
+xxd (8.9 kb) (XXD) [Y/n/?] y
+hwclock (5.8 kb) (HWCLOCK) [Y/n/?] y
+  Use FHS /var/lib/hwclock/adjtime (FEATURE_HWCLOCK_ADJTIME_FHS) [Y/n/?] y
+ionice (3.8 kb) (IONICE) [N/y/?] n
+ipcrm (3.2 kb) (IPCRM) [Y/n/?] y
+ipcs (11 kb) (IPCS) [Y/n/?] y
+last (6.1 kb) (LAST) [Y/n/?] y
+  Output extra information (FEATURE_LAST_FANCY) [N/y/?] n
+losetup (5.5 kb) (LOSETUP) [Y/n/?] y
+lspci (6.3 kb) (LSPCI) [Y/n/?] y
+lsusb (4.2 kb) (LSUSB) [Y/n/?] y
+mdev (17 kb) (MDEV) [Y/n/?] y
+  Support /etc/mdev.conf (FEATURE_MDEV_CONF) [Y/n/?] y
+    Support subdirs/symlinks (FEATURE_MDEV_RENAME) [Y/n/?] y
+      Support regular expressions substitutions when renaming device (FEATURE_MDEV_RENAME_REGEXP) [N/y/?] n
+    Support command execution at device addition/removal (FEATURE_MDEV_EXEC) [Y/n/?] y
+  Support loading of firmware (FEATURE_MDEV_LOAD_FIRMWARE) [N/y/?] n
+  Support daemon mode (FEATURE_MDEV_DAEMON) [Y/n/?] y
+mesg (1.4 kb) (MESG) [Y/n/?] y
+  Enable writing to tty only by group, not by everybody (FEATURE_MESG_ENABLE_ONLY_GROUP) [Y/n/?] y
+mke2fs (10 kb) (MKE2FS) [Y/n/?] y
+mkfs.ext2 (10 kb) (MKFS_EXT2) [N/y/?] n
+mkfs.minix (10 kb) (MKFS_MINIX) [N/y/?] n
+mkfs_reiser (MKFS_REISER) [N/y/?] n
+mkdosfs (7.2 kb) (MKDOSFS) [Y/n/?] y
+mkfs.vfat (7.2 kb) (MKFS_VFAT) [N/y/?] n
+mkswap (6.3 kb) (MKSWAP) [Y/n/?] y
+  UUID support (FEATURE_MKSWAP_UUID) [N/y/?] n
+more (7 kb) (MORE) [Y/n/?] y
+mount (23 kb) (MOUNT) [Y/n/?] y
+  Support -f (fake mount) (FEATURE_MOUNT_FAKE) [N/y/?] n
+  Support -v (verbose) (FEATURE_MOUNT_VERBOSE) [N/y/?] n
+  Support mount helpers (FEATURE_MOUNT_HELPERS) [N/y/?] n
+  Support specifying devices by label or UUID (FEATURE_MOUNT_LABEL) [N/y/?] n
+  Support mounting NFS file systems on Linux < 2.6.23 (FEATURE_MOUNT_NFS) [N/y/?] n
+  Support mounting CIFS/SMB file systems (FEATURE_MOUNT_CIFS) [Y/n/?] y
+  Support lots of -o flags (FEATURE_MOUNT_FLAGS) [Y/n/?] y
+  Support /etc/fstab and -a (mount all) (FEATURE_MOUNT_FSTAB) [Y/n/?] y
+    Support -T <alt_fstab> (FEATURE_MOUNT_OTHERTAB) [Y/n/?] y
+mountpoint (4.9 kb) (MOUNTPOINT) [Y/n/?] y
+nologin (NOLOGIN) [Y/n/?] y
+  Enable dependencies for nologin (NOLOGIN_DEPENDENCIES) [Y/n/?] y
+nsenter (6.5 kb) (NSENTER) [N/y/?] n
+pivot_root (1.1 kb) (PIVOT_ROOT) [Y/n/?] y
+rdate (5.6 kb) (RDATE) [Y/n/?] y
+rdev (1.8 kb) (RDEV) [N/y/?] n
+readprofile (7.1 kb) (READPROFILE) [Y/n/?] y
+renice (4.2 kb) (RENICE) [Y/n/?] y
+rev (4.4 kb) (REV) [N/y/?] n
+rtcwake (6.8 kb) (RTCWAKE) [N/y/?] n
+script (8.6 kb) (SCRIPT) [N/y/?] n
+scriptreplay (2.4 kb) (SCRIPTREPLAY) [N/y/?] n
+setarch (3.6 kb) (SETARCH) [Y/n/?] y
+linux32 (3.3 kb) (LINUX32) [Y/n/?] y
+linux64 (3.3 kb) (LINUX64) [Y/n/?] y
+setpriv (6.6 kb) (SETPRIV) [Y/n/?] y
+  Support dumping current privilege state (FEATURE_SETPRIV_DUMP) [Y/n/?] y
+  Support capabilities (FEATURE_SETPRIV_CAPABILITIES) [Y/n/?] y
+    Support capability names (FEATURE_SETPRIV_CAPABILITY_NAMES) [Y/n/?] y
+setsid (3.6 kb) (SETSID) [Y/n/?] y
+swapon (15 kb) (SWAPON) [Y/n/?] y
+  Support discard option -d (FEATURE_SWAPON_DISCARD) [N/y/?] n
+  Support priority option -p (FEATURE_SWAPON_PRI) [N/y/?] n
+swapoff (14 kb) (SWAPOFF) [Y/n] y
+  Support specifying devices by label or UUID (FEATURE_SWAPONOFF_LABEL) [Y/n/?] y
+switch_root (5.5 kb) (SWITCH_ROOT) [Y/n/?] y
+taskset (4.2 kb) (TASKSET) [N/y/?] n
+uevent (3.1 kb) (UEVENT) [Y/n/?] y
+umount (5.1 kb) (UMOUNT) [Y/n/?] y
+  Support -a (unmount all) (FEATURE_UMOUNT_ALL) [Y/n/?] y
+unshare (7.2 kb) (UNSHARE) [N/y/?] n
+wall (2.6 kb) (WALL) [N/y/?] n
+*
+* Common options for mount/umount
+*
+Support loopback mounts (FEATURE_MOUNT_LOOP) [Y/n/?] y
+  Create new loopback devices if needed (FEATURE_MOUNT_LOOP_CREATE) [Y/n/?] y
+Support old /etc/mtab file (FEATURE_MTAB_SUPPORT) [N/y/?] n
+*
+* Filesystem/Volume identification
+*
+bcache filesystem (FEATURE_VOLUMEID_BCACHE) [N/y] n
+btrfs filesystem (FEATURE_VOLUMEID_BTRFS) [N/y] n
+cramfs filesystem (FEATURE_VOLUMEID_CRAMFS) [N/y] n
+exFAT filesystem (FEATURE_VOLUMEID_EXFAT) [Y/n/?] y
+Ext filesystem (FEATURE_VOLUMEID_EXT) [Y/n] y
+f2fs filesystem (FEATURE_VOLUMEID_F2FS) [Y/n/?] y
+fat filesystem (FEATURE_VOLUMEID_FAT) [Y/n] y
+hfs filesystem (FEATURE_VOLUMEID_HFS) [N/y] n
+iso9660 filesystem (FEATURE_VOLUMEID_ISO9660) [N/y] n
+jfs filesystem (FEATURE_VOLUMEID_JFS) [N/y] n
+linuxraid (FEATURE_VOLUMEID_LINUXRAID) [N/y] n
+linux swap filesystem (FEATURE_VOLUMEID_LINUXSWAP) [N/y] n
+luks filesystem (FEATURE_VOLUMEID_LUKS) [N/y] n
+minix filesystem (FEATURE_VOLUMEID_MINIX) [Y/n] y
+nilfs filesystem (FEATURE_VOLUMEID_NILFS) [N/y/?] n
+ntfs filesystem (FEATURE_VOLUMEID_NTFS) [N/y] n
+ocfs2 filesystem (FEATURE_VOLUMEID_OCFS2) [N/y] n
+Reiser filesystem (FEATURE_VOLUMEID_REISERFS) [N/y] n
+romfs filesystem (FEATURE_VOLUMEID_ROMFS) [N/y] n
+sysv filesystem (FEATURE_VOLUMEID_SYSV) [N/y] n
+UBIFS filesystem (FEATURE_VOLUMEID_UBIFS) [Y/n/?] y
+udf filesystem (FEATURE_VOLUMEID_UDF) [N/y] n
+xfs filesystem (FEATURE_VOLUMEID_XFS) [N/y] n
+*
+* Miscellaneous Utilities
+*
+adjtimex (4.7 kb) (ADJTIMEX) [N/y/?] n
+bbconfig (9.7 kb) (BBCONFIG) [N/y/?] n
+bc (45 kb) (BC) [Y/n/?] y
+dc (36 kb) (DC) [Y/n/?] y
+  Use bc code base for dc (larger, more features) (FEATURE_DC_BIG) [Y] y
+    Interactive mode (+4kb) (FEATURE_BC_INTERACTIVE) [Y/n/?] y
+    Enable bc/dc long options (FEATURE_BC_LONG_OPTIONS) [Y/n] y
+beep (2.4 kb) (BEEP) [N/y/?] n
+chat (6.3 kb) (CHAT) [N/y/?] n
+conspy (10 kb) (CONSPY) [N/y/?] n
+crond (14 kb) (CROND) [Y/n/?] y
+  Support -d (redirect output to stderr) (FEATURE_CROND_D) [N/y/?] n
+  Report command output via email (using sendmail) (FEATURE_CROND_CALL_SENDMAIL) [N/y/?] n
+  Support special times (@reboot, @daily, etc) in crontabs (FEATURE_CROND_SPECIAL_TIMES) [Y/n/?] y
+  crond spool directory (FEATURE_CROND_DIR) [/var/spool/cron] /var/spool/cron
+crontab (10 kb) (CRONTAB) [Y/n/?] y
+devfsd (obsolete) (DEVFSD) [N/y/?] n
+Use devfs names for all devices (obsolete) (FEATURE_DEVFS) [N/y/?] n
+devmem (2.5 kb) (DEVMEM) [Y/n/?] y
+fbsplash (26 kb) (FBSPLASH) [N/y/?] n
+flash_eraseall (5.9 kb) (FLASH_ERASEALL) [N/y/?] n
+flash_lock (2.1 kb) (FLASH_LOCK) [N/y/?] n
+flash_unlock (1.3 kb) (FLASH_UNLOCK) [N/y/?] n
+flashcp (5.3 kb) (FLASHCP) [N/y/?] n
+hdparm (25 kb) (HDPARM) [Y/n/?] y
+  Support obtaining detailed information directly from drives (FEATURE_HDPARM_GET_IDENTITY) [Y/n/?] y
+  Register an IDE interface (DANGEROUS) (FEATURE_HDPARM_HDIO_SCAN_HWIF) [N/y/?] n
+  Un-register an IDE interface (DANGEROUS) (FEATURE_HDPARM_HDIO_UNREGISTER_HWIF) [N/y/?] n
+  Perform device reset (DANGEROUS) (FEATURE_HDPARM_HDIO_DRIVE_RESET) [N/y/?] n
+  Tristate device for hotswap (DANGEROUS) (FEATURE_HDPARM_HDIO_TRISTATE_HWIF) [N/y/?] n
+  Get/set using_dma flag (FEATURE_HDPARM_HDIO_GETSET_DMA) [N/y/?] n
+hexedit (21 kb) (HEXEDIT) [Y/n/?] y
+i2cget (5.5 kb) (I2CGET) [Y/n/?] y
+i2cset (6.7 kb) (I2CSET) [Y/n/?] y
+i2cdump (7.1 kb) (I2CDUMP) [Y/n/?] y
+i2cdetect (7.1 kb) (I2CDETECT) [Y/n/?] y
+i2ctransfer (4.0 kb) (I2CTRANSFER) [Y/n/?] y
+inotifyd (3.6 kb) (INOTIFYD) [N/y/?] n
+less (16 kb) (LESS) [Y/n/?] y
+  Max number of input lines less will try to eat (FEATURE_LESS_MAXLINES) [9999999] 9999999
+  Enable bracket searching (FEATURE_LESS_BRACKETS) [Y/n/?] y
+  Enable -m/-M (FEATURE_LESS_FLAGS) [Y/n/?] y
+  Enable -S (FEATURE_LESS_TRUNCATE) [Y/n/?] y
+  Enable marks (FEATURE_LESS_MARKS) [N/y/?] n
+  Enable regular expressions (FEATURE_LESS_REGEXP) [Y/n/?] y
+  Enable automatic resizing on window size changes (FEATURE_LESS_WINCH) [N/y/?] n
+  Enable flag changes ('-' command) (FEATURE_LESS_DASHCMD) [N/y/?] n
+lsscsi (2.5 kb) (LSSCSI) [Y/n/?] y
+makedevs (9.2 kb) (MAKEDEVS) [Y/n/?] y
+  Choose makedevs behaviour
+    1. leaf (FEATURE_MAKEDEVS_LEAF)
+  > 2. table (FEATURE_MAKEDEVS_TABLE)
+  choice[1-2]: 2
+man (26 kb) (MAN) [N/y/?] n
+microcom (5.7 kb) (MICROCOM) [Y/n/?] y
+mt (2.5 kb) (MT) [Y/n/?] y
+nandwrite (4.8 kb) (NANDWRITE) [N/y/?] n
+nanddump (5.2 kb) (NANDDUMP) [N/y/?] n
+partprobe (3.5 kb) (PARTPROBE) [Y/n/?] y
+raidautorun (1.3 kb) (RAIDAUTORUN) [N/y/?] n
+readahead (1.5 kb) (READAHEAD) [N/y/?] n
+rfkill (4.4 kb) (RFKILL) [N/y/?] n
+runlevel (559 bytes) (RUNLEVEL) [Y/n/?] y
+rx (2.9 kb) (RX) [N/y/?] n
+setfattr (3.7 kb) (SETFATTR) [Y/n/?] y
+setserial (6.9 kb) (SETSERIAL) [Y/n/?] y
+strings (4.6 kb) (STRINGS) [Y/n/?] y
+time (6.8 kb) (TIME) [Y/n/?] y
+ts (450 bytes) (TS) [Y/n] y
+ttysize (432 bytes) (TTYSIZE) [N/y/?] n
+ubiattach (4.2 kb) (UBIATTACH) [N/y/?] n
+ubidetach (4.1 kb) (UBIDETACH) [N/y/?] n
+ubimkvol (5.3 kb) (UBIMKVOL) [N/y/?] n
+ubirmvol (4.9 kb) (UBIRMVOL) [N/y/?] n
+ubirsvol (4.2 kb) (UBIRSVOL) [N/y/?] n
+ubiupdatevol (5.2 kb) (UBIUPDATEVOL) [N/y/?] n
+ubirename (2.4 kb) (UBIRENAME) [Y/n/?] y
+volname (1.6 kb) (VOLNAME) [N/y/?] n
+watchdog (5.3 kb) (WATCHDOG) [Y/n/?] y
+*
+* Networking Utilities
+*
+Enable IPv6 support (FEATURE_IPV6) [Y/n/?] y
+Enable Unix domain socket support (usually not needed) (FEATURE_UNIX_LOCAL) [N/y/?] n
+Prefer IPv4 addresses from DNS queries (FEATURE_PREFER_IPV4_ADDRESS) [Y/n/?] y
+Verbose resolution errors (VERBOSE_RESOLUTION_ERRORS) [N/y/?] n
+arp (10 kb) (ARP) [Y/n/?] y
+arping (9 kb) (ARPING) [Y/n/?] y
+brctl (4.7 kb) (BRCTL) [N/y/?] n
+dnsd (9.8 kb) (DNSD) [Y/n/?] y
+ether-wake (4.9 kb) (ETHER_WAKE) [Y/n/?] y
+ftpd (30 kb) (FTPD) [N/y/?] n
+ftpget (7.8 kb) (FTPGET) [N/y/?] n
+ftpput (7.5 kb) (FTPPUT) [N/y/?] n
+hostname (5.5 kb) (HOSTNAME) [Y/n/?] y
+dnsdomainname (3.6 kb) (DNSDOMAINNAME) [Y/n/?] y
+httpd (32 kb) (HTTPD) [N/y/?] n
+ifconfig (12 kb) (IFCONFIG) [Y/n/?] y
+  Enable status reporting output (+7k) (FEATURE_IFCONFIG_STATUS) [Y/n/?] y
+  Enable slip-specific options "keepalive" and "outfill" (FEATURE_IFCONFIG_SLIP) [Y/n/?] y
+  Enable options "mem_start", "io_addr", and "irq" (FEATURE_IFCONFIG_MEMSTART_IOADDR_IRQ) [Y/n/?] y
+  Enable option "hw" (ether only) (FEATURE_IFCONFIG_HW) [Y/n/?] y
+  Set the broadcast automatically (FEATURE_IFCONFIG_BROADCAST_PLUS) [N/y/?] n
+ifenslave (13 kb) (IFENSLAVE) [N/y/?] n
+ifplugd (10 kb) (IFPLUGD) [N/y/?] n
+ifup (14 kb) (IFUP) [Y/n/?] y
+ifdown (13 kb) (IFDOWN) [Y/n/?] y
+  Absolute path to ifstate file (IFUPDOWN_IFSTATE_PATH) [/var/run/ifstate] /var/run/ifstate
+  Use ip tool (else ifconfig/route is used) (FEATURE_IFUPDOWN_IP) [Y/n/?] y
+  Support IPv4 (FEATURE_IFUPDOWN_IPV4) [Y/n/?] y
+  Support IPv6 (FEATURE_IFUPDOWN_IPV6) [Y/n/?] y
+  Enable mapping support (FEATURE_IFUPDOWN_MAPPING) [Y/n/?] y
+  Support external DHCP clients (FEATURE_IFUPDOWN_EXTERNAL_DHCP) [N/y/?] n
+inetd (18 kb) (INETD) [Y/n/?] y
+  Support echo service on port 7 (FEATURE_INETD_SUPPORT_BUILTIN_ECHO) [Y/n/?] y
+  Support discard service on port 8 (FEATURE_INETD_SUPPORT_BUILTIN_DISCARD) [Y/n/?] y
+  Support time service on port 37 (FEATURE_INETD_SUPPORT_BUILTIN_TIME) [Y/n/?] y
+  Support daytime service on port 13 (FEATURE_INETD_SUPPORT_BUILTIN_DAYTIME) [Y/n/?] y
+  Support chargen service on port 19 (FEATURE_INETD_SUPPORT_BUILTIN_CHARGEN) [Y/n/?] y
+  Support RPC services (FEATURE_INETD_RPC) [N/y/?] n
+ip (35 kb) (IP) [Y/n/?] y
+ipaddr (14 kb) (IPADDR) [Y/n/?] y
+iplink (17 kb) (IPLINK) [Y/n/?] y
+iproute (15 kb) (IPROUTE) [Y/n/?] y
+iptunnel (9.6 kb) (IPTUNNEL) [Y/n/?] y
+iprule (10 kb) (IPRULE) [Y/n/?] y
+ipneigh (8.3 kb) (IPNEIGH) [Y/n/?] y
+ip address (FEATURE_IP_ADDRESS) [Y/?] y
+ip link (FEATURE_IP_LINK) [Y/?] y
+ip route (FEATURE_IP_ROUTE) [Y/?] y
+  ip route configuration directory (FEATURE_IP_ROUTE_DIR) [/etc/iproute2] /etc/iproute2
+ip tunnel (FEATURE_IP_TUNNEL) [Y/?] y
+ip rule (FEATURE_IP_RULE) [Y/?] y
+ip neighbor (FEATURE_IP_NEIGH) [Y/?] y
+Support displaying rarely used link types (FEATURE_IP_RARE_PROTOCOLS) [N/y/?] n
+ipcalc (4.4 kb) (IPCALC) [N/y/?] n
+fakeidentd (8.7 kb) (FAKEIDENTD) [N/y/?] n
+nameif (6.6 kb) (NAMEIF) [Y/n/?] y
+  Extended nameif (FEATURE_NAMEIF_EXTENDED) [N/y/?] n
+nbd-client (6 kb) (NBDCLIENT) [N/y/?] n
+nc (11 kb) (NC) [N/y/?] n
+netcat (11 kb) (NETCAT) [N/y/?] n
+netstat (10 kb) (NETSTAT) [Y/n/?] y
+  Enable wide output (FEATURE_NETSTAT_WIDE) [N/y/?] n
+  Enable PID/Program name output (FEATURE_NETSTAT_PRG) [N/y/?] n
+nslookup (9.7 kb) (NSLOOKUP) [Y/n/?] y
+  Use internal resolver code instead of libc (FEATURE_NSLOOKUP_BIG) [Y/n] y
+    Enable long options (FEATURE_NSLOOKUP_LONG_OPTIONS) [Y/n] y
+ntpd (22 kb) (NTPD) [N/y/?] n
+ping (10 kb) (PING) [Y/n/?] y
+ping6 (11 kb) (PING6) [N/y/?] n
+Enable fancy ping output (FEATURE_FANCY_PING) [Y/n/?] y
+pscan (6 kb) (PSCAN) [N/y/?] n
+route (8.7 kb) (ROUTE) [Y/n/?] y
+slattach (6.2 kb) (SLATTACH) [N/y/?] n
+ssl_client (25 kb) (SSL_CLIENT) [N/y/?] n
+tc (8.3 kb) (TC) [Y/n/?] y
+  Enable ingress (FEATURE_TC_INGRESS) [Y/n] y
+tcpsvd (14 kb) (TCPSVD) [N/y/?] n
+udpsvd (13 kb) (UDPSVD) [N/y/?] n
+telnet (8.8 kb) (TELNET) [Y/n/?] y
+  Pass TERM type to remote host (FEATURE_TELNET_TTYPE) [Y/n/?] y
+  Pass USER type to remote host (FEATURE_TELNET_AUTOLOGIN) [Y/n/?] y
+  Enable window size autodetection (FEATURE_TELNET_WIDTH) [Y/n] y
+telnetd (12 kb) (TELNETD) [N/y/?] n
+tftp (11 kb) (TFTP) [Y/n/?] y
+  Enable progress bar (FEATURE_TFTP_PROGRESS_BAR) [N/y] n
+  tftp-hpa compat (support -c get/put FILE) (FEATURE_TFTP_HPA_COMPAT) [Y/n] y
+tftpd (10 kb) (TFTPD) [N/y/?] n
+  Enable 'tftp get' and/or tftpd upload code (FEATURE_TFTP_GET) [Y/n/?] y
+  Enable 'tftp put' and/or tftpd download code (FEATURE_TFTP_PUT) [Y/n/?] y
+  Enable 'blksize' and 'tsize' protocol options (FEATURE_TFTP_BLOCKSIZE) [Y/n/?] y
+  Enable debug (TFTP_DEBUG) [N/y/?] n
+traceroute (11 kb) (TRACEROUTE) [Y/n/?] y
+traceroute6 (13 kb) (TRACEROUTE6) [N/y/?] n
+Enable verbose output (FEATURE_TRACEROUTE_VERBOSE) [N/y/?] n
+Enable -I option (use ICMP instead of UDP) (FEATURE_TRACEROUTE_USE_ICMP) [N/y] n
+tunctl (6.2 kb) (TUNCTL) [N/y/?] n
+vconfig (2.3 kb) (VCONFIG) [Y/n/?] y
+wget (38 kb) (WGET) [Y/n/?] y
+  Enable long options (FEATURE_WGET_LONG_OPTIONS) [Y/n] y
+  Enable progress bar (+2k) (FEATURE_WGET_STATUSBAR) [Y/n] y
+  Enable HTTP authentication (FEATURE_WGET_AUTHENTICATION) [Y/n/?] y
+  Enable timeout option -T SEC (FEATURE_WGET_TIMEOUT) [Y/n/?] y
+  Support HTTPS using internal TLS code (FEATURE_WGET_HTTPS) [N/y/?] n
+  Try to connect to HTTPS using openssl (FEATURE_WGET_OPENSSL) [N/y/?] n
+whois (6.3 kb) (WHOIS) [N/y/?] n
+zcip (8.4 kb) (ZCIP) [N/y/?] n
+udhcpd (21 kb) (UDHCPD) [N/y/?] n
+dumpleases (5.1 kb) (DUMPLEASES) [N/y/?] n
+dhcprelay (5.2 kb) (DHCPRELAY) [N/y/?] n
+udhcpc (24 kb) (UDHCPC) [Y/n/?] y
+  Verify that the offered address is free, using ARP ping (FEATURE_UDHCPC_ARPING) [Y/n/?] y
+  Do not pass malformed host and domain names (FEATURE_UDHCPC_SANITIZEOPT) [Y/n/?] y
+  Absolute path to config script (UDHCPC_DEFAULT_SCRIPT) [/usr/share/udhcpc/default.script] /usr/share/udhcpc/default.script
+udhcpc6 (21 kb) (UDHCPC6) [N/y/?] n
+*
+* Common options for DHCP applets
+*
+Enable '-P port' option for udhcpd and udhcpc (FEATURE_UDHCP_PORT) [N/y/?] n
+Maximum verbosity level (0..9) (UDHCP_DEBUG) [0] 0
+DHCP options slack buffer size (UDHCPC_SLACK_FOR_BUGGY_SERVERS) [80] 80
+Support RFC 3397 domain search options (FEATURE_UDHCP_RFC3397) [Y/n/?] y
+Support 802.1Q VLAN parameters options (FEATURE_UDHCP_8021Q) [Y/n/?] y
+ifup udhcpc command line options (IFUPDOWN_UDHCPC_CMD_OPTIONS) [-R -n -O search] -R -n -O search
+*
+* Print Utilities
+*
+lpd (5.5 kb) (LPD) [N/y/?] n
+lpr (9.9 kb) (LPR) [N/y/?] n
+lpq (9.9 kb) (LPQ) [N/y/?] n
+*
+* Mail Utilities
+*
+makemime (5.4 kb) (MAKEMIME) [N/y/?] n
+popmaildir (10 kb) (POPMAILDIR) [N/y/?] n
+reformime (7.5 kb) (REFORMIME) [N/y/?] n
+sendmail (14 kb) (SENDMAIL) [N/y/?] n
+*
+* Process Utilities
+*
+free (3.1 kb) (FREE) [Y/n/?] y
+fuser (7 kb) (FUSER) [Y/n/?] y
+iostat (7.6 kb) (IOSTAT) [N/y/?] n
+kill (3.1 kb) (KILL) [Y/n/?] y
+killall (5.6 kb) (KILLALL) [Y/n/?] y
+killall5 (5.3 kb) (KILLALL5) [Y/n/?] y
+lsof (3.4 kb) (LSOF) [Y/n/?] y
+mpstat (9.8 kb) (MPSTAT) [N/y/?] n
+nmeter (11 kb) (NMETER) [N/y/?] n
+pgrep (6.5 kb) (PGREP) [N/y/?] n
+pkill (7.5 kb) (PKILL) [N/y/?] n
+pidof (6.3 kb) (PIDOF) [Y/n/?] y
+  Enable single shot (-s) (FEATURE_PIDOF_SINGLE) [Y/n/?] y
+  Enable omitting pids (-o PID) (FEATURE_PIDOF_OMIT) [Y/n/?] y
+pmap (6 kb) (PMAP) [N/y/?] n
+powertop (9.6 kb) (POWERTOP) [N/y/?] n
+ps (11 kb) (PS) [Y/n/?] y
+  Enable -o time and -o etime specifiers (FEATURE_PS_TIME) [N/y] n
+  Enable -o rgroup, -o ruser, -o nice specifiers (FEATURE_PS_ADDITIONAL_COLUMNS) [N/y] n
+pstree (9.3 kb) (PSTREE) [N/y/?] n
+pwdx (3.7 kb) (PWDX) [N/y/?] n
+smemcap (2.5 kb) (SMEMCAP) [N/y/?] n
+sysctl (7.4 kb) (BB_SYSCTL) [Y/n/?] y
+top (18 kb) (TOP) [Y/n/?] y
+  Accept keyboard commands (FEATURE_TOP_INTERACTIVE) [Y/n/?] y
+  Show CPU per-process usage percentage (FEATURE_TOP_CPU_USAGE_PERCENTAGE) [Y/n/?] y
+    Show CPU global usage percentage (FEATURE_TOP_CPU_GLOBAL_PERCENTS) [Y/n/?] y
+      SMP CPU usage display ('c' key) (FEATURE_TOP_SMP_CPU) [N/y/?] n
+    Show 1/10th of a percent in CPU/mem statistics (FEATURE_TOP_DECIMALS) [N/y/?] n
+  Show CPU process runs on ('j' field) (FEATURE_TOP_SMP_PROCESS) [N/y/?] n
+  Topmem command ('s' key) (FEATURE_TOPMEM) [N/y/?] n
+uptime (3.7 kb) (UPTIME) [Y/n/?] y
+  Show the number of users (FEATURE_UPTIME_UTMP_SUPPORT) [N/y/?] n
+watch (4.4 kb) (WATCH) [Y/n/?] y
+Support thread display in ps/pstree/top (FEATURE_SHOW_THREADS) [N/y/?] n
+*
+* Runit Utilities
+*
+chpst (9 kb) (CHPST) [N/y/?] n
+setuidgid (4 kb) (SETUIDGID) [N/y/?] n
+envuidgid (3.9 kb) (ENVUIDGID) [N/y/?] n
+envdir (2.5 kb) (ENVDIR) [N/y/?] n
+softlimit (4.5 kb) (SOFTLIMIT) [N/y/?] n
+runsv (7.8 kb) (RUNSV) [N/y/?] n
+runsvdir (6.3 kb) (RUNSVDIR) [N/y/?] n
+sv (8.5 kb) (SV) [N/y/?] n
+  Default directory for services (SV_DEFAULT_SERVICE_DIR) [] 
+svc (8.4 kb) (SVC) [Y/n/?] y
+svok (1.5 kb) (SVOK) [Y/n/?] y
+svlogd (16 kb) (SVLOGD) [N/y/?] n
+*
+* Shells
+*
+Choose which shell is aliased to 'sh' name
+> 1. ash (SH_IS_ASH)
+  2. hush (SH_IS_HUSH)
+  3. none (SH_IS_NONE)
+choice[1-3?]: 1
+Choose which shell is aliased to 'bash' name
+  1. ash (BASH_IS_ASH)
+  2. hush (BASH_IS_HUSH)
+> 3. none (BASH_IS_NONE)
+choice[1-3?]: 3
+ash (78 kb) (ASH) [Y/n/?] y
+  Optimize for size instead of speed (ASH_OPTIMIZE_FOR_SIZE) [Y/n] y
+  Use internal glob() implementation (ASH_INTERNAL_GLOB) [Y/n/?] y
+  bash-compatible extensions (ASH_BASH_COMPAT) [Y/n] y
+    'source' and '.' builtins search current directory after $PATH (ASH_BASH_SOURCE_CURDIR) [N/y/?] n
+    command_not_found_handle hook support (ASH_BASH_NOT_FOUND_HOOK) [Y/n/?] y
+  Job control (ASH_JOB_CONTROL) [Y/n] y
+  Alias support (ASH_ALIAS) [Y/n] y
+  Pseudorandom generator and $RANDOM variable (ASH_RANDOM_SUPPORT) [Y/n/?] y
+  Expand prompt string (ASH_EXPAND_PRMT) [Y/n/?] y
+  Idle timeout variable $TMOUT (ASH_IDLE_TIMEOUT) [Y/n/?] y
+  Check for new mail in interactive shell (ASH_MAIL) [N/y/?] n
+  echo builtin (ASH_ECHO) [Y/n] y
+  printf builtin (ASH_PRINTF) [Y/n] y
+  test builtin (ASH_TEST) [Y/n] y
+  help builtin (ASH_HELP) [Y/n] y
+  getopts builtin (ASH_GETOPTS) [Y/n] y
+  command builtin (ASH_CMDCMD) [Y/n/?] y
+cttyhack (2.4 kb) (CTTYHACK) [N/y/?] n
+hush (68 kb) (HUSH) [N/y/?] n
+*
+* Options common to all shells
+*
+POSIX math support (FEATURE_SH_MATH) [Y/n/?] y
+  Extend POSIX math support to 64 bit (FEATURE_SH_MATH_64) [Y/n/?] y
+  Support BASE#nnnn literals (FEATURE_SH_MATH_BASE) [Y/n] y
+Hide message on interactive shell startup (FEATURE_SH_EXTRA_QUIET) [Y/n/?] y
+Standalone shell (FEATURE_SH_STANDALONE) [N/y/?] n
+Run 'nofork' applets directly (FEATURE_SH_NOFORK) [N/y/?] n
+read -t N.NNN support (+110 bytes) (FEATURE_SH_READ_FRAC) [Y/n/?] y
+Use $HISTFILESIZE (FEATURE_SH_HISTFILESIZE) [N/y/?] n
+Embed scripts in the binary (FEATURE_SH_EMBEDDED_SCRIPTS) [Y/n/?] y
+*
+* System Logging Utilities
+*
+klogd (5.7 kb) (KLOGD) [Y/n/?] y
+  Use the klogctl() interface (FEATURE_KLOGD_KLOGCTL) [Y/n/?] y
+logger (6.3 kb) (LOGGER) [Y/n/?] y
+logread (4.8 kb) (LOGREAD) [N/y/?] n
+syslogd (13 kb) (SYSLOGD) [Y/n/?] y
+  Rotate message files (FEATURE_ROTATE_LOGFILE) [Y/n/?] y
+  Remote Log support (FEATURE_REMOTE_LOG) [Y/n/?] y
+  Support -D (drop dups) option (FEATURE_SYSLOGD_DUP) [N/y/?] n
+  Support syslog.conf (FEATURE_SYSLOGD_CFG) [N/y/?] n
+  Read buffer size in bytes (FEATURE_SYSLOGD_READ_BUFFER_SIZE) [256] 256
+  Circular Buffer support (FEATURE_IPC_SYSLOG) [N/y/?] n
+  Linux kernel printk buffer support (FEATURE_KMSG_SYSLOG) [N/y/?] n
+make[1]: Leaving directory '/home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1'
+[7m>>> busybox 1.31.1 Configuring[27m
+[7m>>> busybox 1.31.1 Building[27m
+PATH="/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin:/home/marcelle/build_root/buildroot-2019.11.1/output/host/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin" CFLAGS="-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64  -Os  " CFLAGS_busybox="" /usr/bin/make -j5 CC="/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/aarch64-buildroot-linux-gnu-gcc" ARCH=arm64 PREFIX="/home/marcelle/build_root/buildroot-2019.11.1/output/target" EXTRA_LDFLAGS="" CROSS_COMPILE="/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/aarch64-buildroot-linux-gnu-" CONFIG_PREFIX="/home/marcelle/build_root/buildroot-2019.11.1/output/target" SKIP_STRIP=y -C /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1
+make[1]: Entering directory '/home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1'
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/split-include
+  HOSTCC  scripts/basic/docproc
+  SPLIT   include/autoconf.h -> include/config/*
+  GEN     include/bbconfigopts.h
+  GEN     include/common_bufsiz.h
+  GEN     include/embedded_scripts.h
+  HOSTCC  applets/usage
+  HOSTCC  applets/applet_tables
+applets/usage.c: In function ‘main’:
+applets/usage.c:52:3: warning: ignoring return value of ‘write’, declared with attribute warn_unused_result [-Wunused-result]
+   write(STDOUT_FILENO, usage_array[i].usage, strlen(usage_array[i].usage) + 1);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  GEN     include/usage_compressed.h
+  GEN     include/applet_tables.h include/NUM_APPLETS.h
+  GEN     include/applet_tables.h include/NUM_APPLETS.h
+  HOSTCC  applets/usage_pod
+  CC      applets/applets.o
+applets/usage_pod.c: In function ‘main’:
+applets/usage_pod.c:74:3: warning: format not a string literal and no format arguments [-Wformat-security]
+   printf(usage_array[i].aname);
+   ^~~~~~
+  LD      applets/built-in.o
+  DOC     busybox.pod
+  DOC     BusyBox.txt
+  DOC     busybox.1
+  DOC     BusyBox.html
+  CC      shell/ash.o
+  CC      libbb/appletlib.o
+  CC      libbb/lineedit.o
+  CC      libbb/vfork_daemon_rexec.o
+  AR      shell/lib.a
+  AR      libbb/lib.a
+  LINK    busybox_unstripped
+Trying libraries: crypt m resolv
+ Library crypt is not needed, excluding it
+ Library m is not needed, excluding it
+ Library resolv is needed, can't exclude it (yet)
+Final link with: resolv
+make[1]: Leaving directory '/home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1'
+[7m>>> busybox 1.31.1 Installing to target[27m
+# Use the 'noclobber' install rule, to prevent BusyBox from overwriting
+# any full-blown versions of apps installed by other packages.
+PATH="/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin:/home/marcelle/build_root/buildroot-2019.11.1/output/host/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin" CFLAGS="-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64  -Os  " CFLAGS_busybox="" /usr/bin/make -j5 CC="/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/aarch64-buildroot-linux-gnu-gcc" ARCH=arm64 PREFIX="/home/marcelle/build_root/buildroot-2019.11.1/output/target" EXTRA_LDFLAGS="" CROSS_COMPILE="/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/aarch64-buildroot-linux-gnu-" CONFIG_PREFIX="/home/marcelle/build_root/buildroot-2019.11.1/output/target" SKIP_STRIP=y -C /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1 install-noclobber
+make[1]: Entering directory '/home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1'
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/arch already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/ash already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/base64 already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/cat already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/chattr already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/chgrp already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/chmod already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/chown already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/cp already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/cpio already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/date already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/dd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/df already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/dmesg already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/dnsdomainname already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/dumpkmap already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/echo already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/egrep already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/false already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/fdflush already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/fgrep already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/getopt already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/grep already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/gunzip already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/gzip already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/hostname already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/kill already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/link already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/linux32 already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/linux64 already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/ln already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/login already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/ls already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/lsattr already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/mkdir already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/mknod already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/mktemp already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/more already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/mount already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/mountpoint already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/mt already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/mv already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/netstat already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/nice already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/nuke already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/pidof already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/ping already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/pipe_progress already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/printenv already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/ps already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/pwd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/resume already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/rm already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/rmdir already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/run-parts already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/sed already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/setarch already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/setpriv already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/setserial already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/sh already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/sleep already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/stty already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/su already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/sync already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/tar already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/touch already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/true already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/umount already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/uname already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/usleep already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/vi already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/watch already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//bin/zcat already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//linuxrc already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/arp already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/blkid already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/devmem already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/fdisk already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/freeramdisk already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/fsck already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/fstrim already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/getty already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/halt already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/hdparm already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/hwclock already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/ifconfig already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/ifdown already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/ifup already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/init already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/insmod already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/ip already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/ipaddr already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/iplink already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/ipneigh already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/iproute already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/iprule already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/iptunnel already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/klogd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/loadkmap already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/losetup already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/lsmod already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/makedevs already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/mdev already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/mkdosfs already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/mke2fs already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/mkswap already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/modprobe already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/nameif already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/pivot_root already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/poweroff already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/reboot already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/rmmod already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/route already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/run-init already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/runlevel already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/setconsole already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/start-stop-daemon already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/sulogin already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/swapoff already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/swapon already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/switch_root already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/sysctl already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/syslogd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/tc already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/udhcpc already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/uevent already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/vconfig already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//sbin/watchdog already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/[ already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/[[ already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/ar already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/awk already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/basename already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/bc already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/bunzip2 already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/bzcat already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/chrt already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/chvt already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/cksum already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/clear already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/cmp already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/crontab already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/cut already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/dc already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/deallocvt already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/diff already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/dirname already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/dos2unix already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/du already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/eject already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/env already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/expr already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/factor already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/fallocate already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/find already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/flock already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/fold already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/free already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/fuser already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/head already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/hexdump already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/hexedit already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/hostid already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/id already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/install already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/ipcrm already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/ipcs already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/killall already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/last already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/less already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/logger already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/logname already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/lsof already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/lspci already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/lsscsi already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/lsusb already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/lzcat already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/lzma already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/lzopcat already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/md5sum already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/mesg already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/microcom already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/mkfifo already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/mkpasswd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/nl already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/nohup already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/nproc already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/nslookup already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/od already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/openvt already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/passwd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/paste already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/patch already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/printf already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/readlink already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/realpath already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/renice already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/reset already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/resize already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/seq already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/setfattr already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/setkeycodes already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/setsid already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/sha1sum already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/sha256sum already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/sha3sum already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/sha512sum already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/shred already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/sort already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/strings already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/svc already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/svok already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/tail already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/tee already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/telnet already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/test already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/tftp already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/time already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/top already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/tr already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/traceroute already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/truncate already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/ts already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/tty already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/uniq already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/unix2dos already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/unlink already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/unlzma already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/unlzop already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/unxz already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/unzip already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/uptime already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/uudecode already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/uuencode already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/vlock already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/w already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/wc already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/wget already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/which already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/who already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/whoami already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/xargs already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/xxd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/xz already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/xzcat already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/bin/yes already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/addgroup already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/adduser already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/arping already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/chroot already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/crond already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/delgroup already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/deluser already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/dnsd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/ether-wake already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/fbset already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/fdformat already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/fsfreeze already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/i2cdetect already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/i2cdump already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/i2cget already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/i2cset already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/i2ctransfer already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/inetd already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/killall5 already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/loadfont already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/nologin already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/partprobe already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/rdate already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/readprofile already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/setlogcons already exists
+  /home/marcelle/build_root/buildroot-2019.11.1/output/target//usr/sbin/ubirename already exists
+
+
+--------------------------------------------------
+You will probably need to make your busybox binary
+setuid root to ensure all configured applets will
+work properly.
+--------------------------------------------------
+
+make[1]: Leaving directory '/home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1'
+if test ! -e /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/inittab; then /usr/bin/install -D -m 0644 package/busybox/inittab /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/inittab; fi
+if grep -q CONFIG_UDHCPC=y /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config; then /usr/bin/install -m 0755 -D package/busybox/udhcpc.script /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/udhcpc/default.script; /usr/bin/install -m 0755 -d /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/udhcpc/default.script.d; fi
+if grep -q CONFIG_SYSLOGD=y /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config; then /usr/bin/install -m 0755 -D package/busybox/S01syslogd /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/init.d/S01syslogd; fi; if grep -q CONFIG_KLOGD=y /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config; then /usr/bin/install -m 0755 -D package/busybox/S02klogd /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/init.d/S02klogd; fi
+if grep -q CONFIG_BB_SYSCTL=y /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config; then /usr/bin/install -m 0755 -D package/busybox/S02sysctl /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/init.d/S02sysctl ; fi
+if grep -q CONFIG_FEATURE_TELNETD_STANDALONE=y /home/marcelle/build_root/buildroot-2019.11.1/output/build/busybox-1.31.1/.config; then /usr/bin/install -m 0755 -D package/busybox/S50telnet /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/init.d/S50telnet ; fi
+[7m>>>   Finalizing target directory[27m
+# Check files that are touched by more than one package
+/bin/sed -i -e '/# GENERIC_SERIAL$/s~^.*#~console::respawn:/sbin/getty -L  console 0 vt100 #~' /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/inittab
+/bin/sed -i -e '/^#.*-o remount,rw \/$/s~^#\+~~' /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/inittab
+if grep -q CONFIG_ASH=y ./.config; then grep -qsE '^/bin/ash$' /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/shells || echo "/bin/ash" >> /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/shells; fi
+if grep -q CONFIG_HUSH=y ./.config; then grep -qsE '^/bin/hush$' /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/shells || echo "/bin/hush" >> /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/shells; fi
+mkdir -p /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc
+echo "buildroot" > /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/hostname
+/bin/sed -i -e '$a \127.0.1.1\tbuildroot' -e '/^127.0.1.1/d' /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/hosts
+mkdir -p /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc
+echo "Welcome to Buildroot" > /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/issue
+/bin/sed -i -e s,^root:[^:]*:,root:"`/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/mkpasswd -m "sha-256" "12345"`":, /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/shadow
+grep -qsE '^/bin/sh$' /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/shells || echo "/bin/sh" >> /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/shells
+rm -f /home/marcelle/build_root/buildroot-2019.11.1/output/build/locales.nopurge
+for i in C en_US locale-archive; do echo $i >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/locales.nopurge; done
+for dir in ; do for langdir in $dir/*; do if [ -e "${langdir}" ]; then grep -qx "${langdir##*/}" /home/marcelle/build_root/buildroot-2019.11.1/output/build/locales.nopurge || rm -rf $langdir; fi done; done
+if [ -d /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/X11/locale ]; then for lang in C en_US; do if [ -f /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/X11/locale/$lang/XLC_LOCALE ]; then echo "$lang/XLC_LOCALE: $lang"; fi done > /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/X11/locale/locale.dir; fi
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/include /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/aclocal \
+	/home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/lib/pkgconfig /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/pkgconfig \
+	/home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/lib/cmake /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/cmake
+find /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/{lib,share}/ -name '*.cmake' -print0 | xargs -0 rm -f
+find /home/marcelle/build_root/buildroot-2019.11.1/output/target/lib/ /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/lib/ /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/libexec/ \
+	\( -name '*.a' -o -name '*.la' \) -print0 | xargs -0 rm -f
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/gdb
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/bash-completion
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/zsh
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/man /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/man
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/info /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/info
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/doc /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/doc
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share/gtk-doc
+rmdir /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/share 2>/dev/null || true
+find /home/marcelle/build_root/buildroot-2019.11.1/output/target   -type f \( -perm /111 -o -name '*.so*' \) -not \( -name 'libpthread*.so*' -o -name 'ld-*.so*' -o -name '*.ko' \) -print0 | xargs -0 /home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/aarch64-buildroot-linux-gnu-strip --remove-section=.comment --remove-section=.note 2>/dev/null || true
+find /home/marcelle/build_root/buildroot-2019.11.1/output/target   \( -name 'ld-*.so*' -o -name 'libpthread*.so*' \) -print0 | xargs -0 -r /home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/aarch64-buildroot-linux-gnu-strip --remove-section=.comment --remove-section=.note --strip-debug 2>/dev/null || true
+test -f /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/ld.so.conf && \
+	{ echo "ERROR: we shouldn't have a /etc/ld.so.conf file"; exit 1; } || true
+test -d /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc/ld.so.conf.d && \
+	{ echo "ERROR: we shouldn't have a /etc/ld.so.conf.d directory"; exit 1; } || true
+mkdir -p /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc
+( \
+	echo "NAME=Buildroot"; \
+	echo "VERSION=2019.11.1-ga6c999a-dirty"; \
+	echo "ID=buildroot"; \
+	echo "VERSION_ID=2019.11.1"; \
+	echo "PRETTY_NAME=\"Buildroot 2019.11.1\"" \
+) >  /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr/lib/os-release
+ln -sf ../usr/lib/os-release /home/marcelle/build_root/buildroot-2019.11.1/output/target/etc
+[7m>>>   Sanitizing RPATH in target tree[27m
+/home/marcelle/build_root/buildroot-2019.11.1/support/scripts/fix-rpath target
+[7m>>>   Copying overlay /home/marcelle/new_img[27m
+[7m>>>   Executing post-build script board/raspberrypi3-64/post-build.sh[27m
+[7m>>>   Executing post-build script board/raspberrypi3-64/mp3_player_post_build.sh[27m
+touch /home/marcelle/build_root/buildroot-2019.11.1/output/target/usr
+[7m>>>   Generating root filesystems common tables[27m
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs
+mkdir -p /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs
+printf '   	sshd -1 sshd -1 * /var/empty - - SSH drop priv user\n\n' >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/full_users_table.txt
+printf '   	/bin/busybox                     f 4755 0  0 - - - - -\n 	/var/empty d 755 root root - - - - -\n\n' > /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/full_devices_table.txt
+cat system/device_table.txt >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/full_devices_table.txt
+[7m>>>   Generating filesystem image rootfs.ext2[27m
+mkdir -p /home/marcelle/build_root/buildroot-2019.11.1/output/images
+rm -rf /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2
+mkdir -p /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2
+rsync -auH --exclude=/THIS_IS_NOT_YOUR_ROOT_FILESYSTEM /home/marcelle/build_root/buildroot-2019.11.1/output/target/ /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/target
+echo '#!/bin/sh' > /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+echo "set -e" >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+echo "chown -h -R 0:0 /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/target" >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+PATH="/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin:/home/marcelle/build_root/buildroot-2019.11.1/output/host/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin" /home/marcelle/build_root/buildroot-2019.11.1/support/scripts/mkusers /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/full_users_table.txt /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/target >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+echo "/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/makedevs -d /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/full_devices_table.txt /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/target" >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+printf '   \n' >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+printf '   	rm -f /home/marcelle/build_root/buildroot-2019.11.1/output/images/rootfs.ext2\n	/home/marcelle/build_root/buildroot-2019.11.1/output/host/sbin/mkfs.ext4 -d /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/target -r 1 -N 0 -m 5 -L "" -O ^64bit /home/marcelle/build_root/buildroot-2019.11.1/output/images/rootfs.ext2 "120M" || { ret=$?; echo "*** Maybe you need to increase the filesystem size (BR2_TARGET_ROOTFS_EXT2_SIZE)" 1>&2; exit $ret; }\n' >> /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+chmod a+x /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+PATH="/home/marcelle/build_root/buildroot-2019.11.1/output/host/bin:/home/marcelle/build_root/buildroot-2019.11.1/output/host/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin" FAKEROOTDONTTRYCHOWN=1 /home/marcelle/build_root/buildroot-2019.11.1/output/host/bin/fakeroot -- /home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/fakeroot
+rootdir=/home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/ext2/target
+table='/home/marcelle/build_root/buildroot-2019.11.1/output/build/buildroot-fs/full_devices_table.txt'
+mke2fs 1.45.4 (23-Sep-2019)
+Creating regular file /home/marcelle/build_root/buildroot-2019.11.1/output/images/rootfs.ext2
+64-bit filesystem support is not enabled.  The larger fields afforded by this feature enable full-strength checksumming.  Pass -O 64bit to rectify.
+Creating filesystem with 122880 1k blocks and 30720 inodes
+Filesystem UUID: bb0e7f1e-cb82-4502-955d-98a03c777c9e
+Superblock backups stored on blocks: 
+	8193, 24577, 40961, 57345, 73729
+
+Allocating group tables:  0/15     done                            
+Writing inode tables:  0/15     done                            
+Creating journal (4096 blocks): done
+Copying files into the device: done
+Writing superblocks and filesystem accounting information:  0/15     done
+
+ln -sf rootfs.ext2 /home/marcelle/build_root/buildroot-2019.11.1/output/images/rootfs.ext4
+[7m>>>   Executing post-image script board/raspberrypi3-64/post-image.sh[27m
+INFO: cmd: "mkdir -p "/home/marcelle/build_root/buildroot-2019.11.1/output/build/genimage.tmp"" (stderr):
+INFO: cmd: "rm -rf "/home/marcelle/build_root/buildroot-2019.11.1/output/build/genimage.tmp"/*" (stderr):
+INFO: cmd: "mkdir -p "/home/marcelle/build_root/buildroot-2019.11.1/output/build/genimage.tmp"" (stderr):
+INFO: cmd: "cp -a "/tmp/tmp.5aZ1AmSOkF" "/home/marcelle/build_root/buildroot-2019.11.1/output/build/genimage.tmp/root"" (stderr):
+INFO: cmd: "find '/home/marcelle/build_root/buildroot-2019.11.1/output/build/genimage.tmp/root' -depth -type d -printf '%P\0' | xargs -0 -I {} touch -r '/tmp/tmp.5aZ1AmSOkF/{}' '/home/marcelle/build_root/buildroot-2019.11.1/output/build/genimage.tmp/root/{}'" (stderr):
+INFO: cmd: "mkdir -p "/home/marcelle/build_root/buildroot-2019.11.1/output/images"" (stderr):
+INFO: vfat(boot.vfat): cmd: "dd if=/dev/zero of="/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat" seek=33554432 count=0 bs=1 2>/dev/null" (stderr):
+INFO: vfat(boot.vfat): cmd: "mkdosfs  '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat'" (stderr):
+INFO: vfat(boot.vfat): adding file 'bcm2710-rpi-3-b.dtb' as 'bcm2710-rpi-3-b.dtb' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/bcm2710-rpi-3-b.dtb' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'bcm2710-rpi-3-b-plus.dtb' as 'bcm2710-rpi-3-b-plus.dtb' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/bcm2710-rpi-3-b-plus.dtb' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'bcm2837-rpi-3-b.dtb' as 'bcm2837-rpi-3-b.dtb' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/bcm2837-rpi-3-b.dtb' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'rpi-firmware/bootcode.bin' as 'rpi-firmware/bootcode.bin' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/rpi-firmware/bootcode.bin' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'rpi-firmware/cmdline.txt' as 'rpi-firmware/cmdline.txt' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/rpi-firmware/cmdline.txt' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'rpi-firmware/config.txt' as 'rpi-firmware/config.txt' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/rpi-firmware/config.txt' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'rpi-firmware/fixup.dat' as 'rpi-firmware/fixup.dat' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/rpi-firmware/fixup.dat' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'rpi-firmware/start.elf' as 'rpi-firmware/start.elf' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/rpi-firmware/start.elf' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'rpi-firmware/overlays' as 'rpi-firmware/overlays' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/rpi-firmware/overlays' '::'" (stderr):
+INFO: vfat(boot.vfat): adding file 'Image' as 'Image' ...
+INFO: vfat(boot.vfat): cmd: "MTOOLS_SKIP_CHECK=1 mcopy -bsp -i '/home/marcelle/build_root/buildroot-2019.11.1/output/images/boot.vfat' '/home/marcelle/build_root/buildroot-2019.11.1/output/images/Image' '::'" (stderr):
+INFO: hdimage(sdcard.img): adding partition 'boot' (in MBR) from 'boot.vfat' ...
+INFO: hdimage(sdcard.img): adding partition 'rootfs' (in MBR) from 'rootfs.ext4' ...
+INFO: hdimage(sdcard.img): writing MBR
